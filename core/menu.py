@@ -22,4 +22,5 @@ class ShowItems():
 		print str('|2. XSS Attack')
 		print str('|3. Admin page finder')
 		print str('|4. Admin page bruteforce')
+		print str('|5. Crawl website')
 		print str('|0. Exit') + TextColor.WHITE
