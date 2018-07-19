@@ -52,7 +52,16 @@ class Check_WebSite(object):
 				self.start(item)
 
 	def CheckWithUrl(self):
-		pass
+		print
+		url = raw_input(TextColor.CYAN + TextColor.BOLD + '~# => Enter url (e.g:http://exapmle.com/index.php?id=1) : ' + TextColor.WHITE)
+		global define_data
+		lib.sys.stdout.write(TextColor.BLUE + '[*]wait for getting response: ')
+		reposne = lib.requests.get(url=url, params=define_data)
+		print reposne.status_code
+		if reposne.status_code == 200:
+			SqlAttack.Attack(url=url)
+		else:
+			print TextColor.WARNING + TextColor.BOLD + '[-]error in reposne' + TextColor.WARNING
 
 	def start(self, url):
 		global define_data
