@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from src.Colors import TextColor
-from src.libs import sys
+try:
+	from src.Colors import TextColor
+	from src.libs import sys
+except Exception as err:
+	raise SystemExit, TextColor.RED + "Something is wrong: %s"%(err) + TextColor.WHITE
 
 #show items of attack
 class ShowItems():
@@ -21,6 +24,6 @@ class ShowItems():
 		print TextColor.CYAN + str('|1. SQL Injections')
 		print str('|2. XSS Attack')
 		print str('|3. Admin page finder')
-		print str('|4. Admin page bruteforce')
+		print str('|4. Admin password bruteforce')
 		print str('|5. Crawl website')
 		print str('|0. Exit') + TextColor.WHITE

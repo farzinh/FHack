@@ -6,7 +6,9 @@ try:
 	from Queue import Queue, Empty as QueueEmpty
 	from time import sleep
 	from bs4 import BeautifulSoup as BS
-
+	import threading as Thread
+	import socket as soc
+	import re as re
 except:
 	from Colors import TextColor
 	raise SystemExit, TextColor.RED + \

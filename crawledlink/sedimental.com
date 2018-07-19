@@ -1,0 +1,14 @@
+http://sedimental.com/../index.php
+http://sedimental.com/../
+http://sedimental.com/news/
+http://sedimental.com/catalog/
+http://sedimental.com/distribution/
+http://sedimental.com/about/
+http://sedimental.com/contact/
+http://sedimental.com/links/
+http://sedimental.com/../catalog/
+http://sedimental.com/catalog/index.php?ID=79
+http://sedimental.com/catalog/index.php?ID=77
+http://sedimental.com/catalog/index.php?ID=63
+http://sedimental.com/catalog/index.php?ID=78
+http://sedimental.com/catalog/index.php?ID=66

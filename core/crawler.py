@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
-
-from src.Colors import TextColor
-from src.libs import sleep
-import src.libs as lib
+try:
+    from src.Colors import TextColor
+    from src.libs import sleep
+    import src.libs as lib
+    from src.libs import Thread
+    import os
+except Exception as err:
+    raise SystemExit, TextColor.RED + str('Something is wrong when we want to import libraries: %s'%(err)) + TextColor.WHITE
 
 define_headers = { #set http header for our requests you can add anothers http headers to this dictionary
     "user-agent":
@@ -88,7 +92,6 @@ class Crawler(object):
 
             counter_depth = counter_depth + 1
 
-
             try:
                 if self.protocol is 'http':
                     response = lib.requests.get(current_url, headers=define_headers, allow_redirects=False)
@@ -102,32 +105,40 @@ class Crawler(object):
                     soup = lib.BS(response.content, "lxml")
                     for line in soup.find_all('a', href=True):
                         if lib.urlparse.urlparse(line['href']):
-                            sleep(0.5)
+                            sleep(0.2)
                             if line['href'].startswith('http') or line['href'].startswith('https'):
-                                if line['href'].startswith('http://localhost/'):
+                                if line['href'].startswith(self.root):
                                     if line['href'] not in self.urls_seen:
                                         print TextColor.BLUE + str('[%d, %s] => '%(counter_depth, current_url) \
                                                                    + line['href']) + TextColor.WHITE
                                         url_queue.put(line['href'])
+                                        _thr_ = Thread.Thread(target=self.WriteUrlsInFile, args=(line['href'],))
+                                        _thr_.daemon = True
+                                        _thr_.start()
                                     else: continue
                             else:
                                 if line['href'].startswith('/'):
                                     if self.root + line['href'] not in self.urls_seen:
                                         print TextColor.BLUE + str('[%d, %s] => '%(counter_depth, current_url) \
                                                                    + self.root + line['href']) + TextColor.WHITE
+                                        self.ThreadPool(self.root + line['href'])
                                         url_queue.put(self.root + line['href'])
+
                                     else: continue
                                 elif not line['href'].startswith('/') or not \
                                         line['href'].startwith('http') or not line['href'].startswith('https'):
                                     if (self.root + '/' + line['href']) not in self.urls_seen:
                                         print TextColor.BLUE + str('[%d, %s] => '%(counter_depth, current_url) + \
                                                                    self.root + '/' + line['href']) + TextColor.WHITE
+                                        self.ThreadPool(self.root + '/' + line['href'])
                                         url_queue.put(self.root + '/' + line['href'])
+
                                     else: continue
                                 else:
                                     if line['href'] not in self.urls_seen:
                                         print TextColor.BLUE + str('[%d, %s] =>'%(counter_depth, current_url) + \
                                                                    line['href']) + TextColor.WHITE
+                                        self.ThreadPool(line['href'])
                                         url_queue.put(line['href'])
                                     else: continue
 
@@ -138,3 +149,34 @@ class Crawler(object):
 
             except Exception:
                 continue
+        url_queue.task_done()
+
+    def ThreadPool(self, url):
+        _thr_ = Thread.Thread(target=self.WriteUrlsInFile,
+                              args=(url,))
+        _thr_.daemon = True
+        _thr_.start()
+
+    """
+        function: WriteUrlsInFile
+        mode: private
+        return: write url in file
+        parameter: url => get url that we must write in file
+    """
+    def WriteUrlsInFile(self, url):
+        all_url_wrote = set()
+
+        if not os.path.exists('crawledlink'):
+            os.mkdir('./crawledlink')
+
+        if not os.path.exists('./crawledlink/' + self.host): #check that destination file is exist or  not
+            os.mknod('./crawledlink/' + self.host)#if not we create that file
+
+        with open('./crawledlink/' + self.host, 'r') as file:
+            for item in file.readlines():
+                all_url_wrote.add(item)
+
+        if url not in all_url_wrote:
+            with open('./crawledlink/' + self.host, 'a') as file:
+                file.write(url + "\n")
+        else: pass
