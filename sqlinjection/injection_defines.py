@@ -7,4 +7,11 @@ define_injections_chars = [
 
 ] #End
 
+define_error_list = [
+    "You have an error in your SQL syntax;",
+    "mysql_num_rows() expects parameter",
+    "mysql_fetch_array() expects parameter",
+    "Invalid SQL: SELECT * FROM"
+]
+
 

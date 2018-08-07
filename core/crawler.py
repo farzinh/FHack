@@ -100,9 +100,9 @@ class Crawler(object):
 
                 #algorithm of crawling on website page
                 if response.status_code == 200:
-                    print
 
-                    soup = lib.BS(response.content, "lxml")
+                    soup = lib.BS(response.content)#, "lxml")
+                    # soup = lib.BS(response.content, "lxml") todo = this line dose not work for mac os
                     for line in soup.find_all('a', href=True):
                         if lib.urlparse.urlparse(line['href']):
                             sleep(0.2)
@@ -170,13 +170,13 @@ class Crawler(object):
             os.mkdir('./crawledlink')
 
         if not os.path.exists('./crawledlink/' + self.host): #check that destination file is exist or  not
-            os.mknod('./crawledlink/' + self.host)#if not we create that file
+            open('./crawledlink/' + self.host, 'a')#if not we create that file
 
         with open('./crawledlink/' + self.host, 'r') as file:
             for item in file.readlines():
                 all_url_wrote.add(item)
 
         if url not in all_url_wrote:
-            with open('./crawledlink/' + self.host, 'a') as file:
+            with open('crawledlink/' + self.host, 'a') as file:
                 file.write(url + "\n")
         else: pass

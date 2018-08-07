@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../FHackGui/FHackGui/.idea/FHackGui.iml" filepath="$PROJECT_DIR$/../FHackGui/FHackGui/.idea/FHackGui.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Fsite.iml" filepath="$PROJECT_DIR$/.idea/Fsite.iml" />
     </modules>
   </component>
