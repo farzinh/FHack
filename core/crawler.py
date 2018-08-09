@@ -5,13 +5,10 @@ try:
     import src.libs as lib
     from src.libs import Thread
     import os
+    from Config.WebConfig import define_headerdata
+
 except Exception as err:
     raise SystemExit, TextColor.RED + str('Something is wrong when we want to import libraries: %s'%(err)) + TextColor.WHITE
-
-define_headers = { #set http header for our requests you can add anothers http headers to this dictionary
-    "user-agent":
-        "Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25"
-}
 
 ''' Function
     name: SetWebSiteUrl
@@ -26,9 +23,9 @@ def SetWebSiteUrl(url): #set url of rhost for crawling
             print TextColor.WARNING + str('[*] Please wait to get response from %s ...'%(url)) + TextColor.WHITE
 
             if url.startswith('http://'): #send request.get for read content of web page
-                response = lib.requests.get(url, headers=define_headers, allow_redirects=False).status_code
+                response = lib.requests.get(url, headers=define_headerdata, allow_redirects=False).status_code
             else:
-                response = lib.requests.get(url, headers=define_headers, verify=False, allow_redirects=False).status_code
+                response = lib.requests.get(url, headers=define_headerdata, verify=False, allow_redirects=False).status_code
 
             if response == 200: #if response is ok and web page is on so we can start the crawling
                 print TextColor.GREEN + str('[+] Remote host has been set ...') + TextColor.WHITE
@@ -94,9 +91,9 @@ class Crawler(object):
 
             try:
                 if self.protocol is 'http':
-                    response = lib.requests.get(current_url, headers=define_headers, allow_redirects=False)
+                    response = lib.requests.get(current_url, headers=define_headerdata, allow_redirects=False)
                 else:
-                    response = lib.requests.get(current_url, headers=define_headers, allow_redirects=False, verify=False)
+                    response = lib.requests.get(current_url, headers=define_headerdata, allow_redirects=False, verify=False)
 
                 #algorithm of crawling on website page
                 if response.status_code == 200:

@@ -18,7 +18,7 @@ define_MAX_MenuItem_WEB_ATTACK = 4
 
 def Switch_Menu_Item(number):
 	subMenu = ShowItems()
-	if number == '1': #web attack menu_ items
+	if number == '1': #web attack menu items
 		while True:
 			subMenu.ItemOfWebAttack()
 			choose = raw_input(TextColor.GREEN + str('Fhack~# ') + TextColor.WHITE)

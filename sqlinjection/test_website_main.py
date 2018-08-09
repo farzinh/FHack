@@ -1,14 +1,14 @@
+from Config.WebConfig import define_headerdata
+
 try:
 	import core.crawler as craw
 	from src.Colors import TextColor
 	import src.libs as lib
 	import os
 	import SqlAttack
+	from Config.WebConfig import (define_headerdata)
 except Exception as err:
 	raise SystemExit, TextColor.RED + str("Something wring in importing the libraries: %s"%(err)) + TextColor.WHITE
-
-define_data = {"user-agent":
-				"Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25"}
 
 def menu():
 	print TextColor.WARNING + str('1. use file') + TextColor.WHITE
@@ -53,10 +53,10 @@ class Check_WebSite(object):
 
 	def CheckWithUrl(self):
 		print
-		url = raw_input(TextColor.CYAN + TextColor.BOLD + '~# => Enter url (e.g:http://exapmle.com/index.php?id=1) : ' + TextColor.WHITE)
-		global define_data
+		url = raw_input(TextColor.CYAN + TextColor.BOLD + '~# => Enter url (e.g:http://exapmle.com/index.php?id=1) : ' \
+						+ TextColor.WHITE)
 		lib.sys.stdout.write(TextColor.BLUE + '[*]wait for getting response: ')
-		reposne = lib.requests.get(url=url, params=define_data)
+		reposne = lib.requests.get(url=url, params=define_headerdata)
 		print reposne.status_code
 		if reposne.status_code == 200:
 			SqlAttack.Attack(url=url)
@@ -64,9 +64,8 @@ class Check_WebSite(object):
 			print TextColor.WARNING + TextColor.BOLD + '[-]error in reposne' + TextColor.WARNING
 
 	def start(self, url):
-		global define_data
 		lib.sys.stdout.write(TextColor.BLUE + '\t[*]wait for getting response: ')
-		reposne = lib.requests.get(url=url, params=define_data)
+		reposne = lib.requests.get(url=url, params=define_headerdata)
 		print reposne.status_code
 		if reposne.status_code == 200:
 			SqlAttack.Attack(url=url)
