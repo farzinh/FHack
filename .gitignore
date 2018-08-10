@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+targets/
+targets
+.idea
+.idea/
+crawledlink/
+crawledlink
