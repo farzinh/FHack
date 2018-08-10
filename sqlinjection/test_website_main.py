@@ -1,5 +1,4 @@
-from Config.WebConfig import define_headerdata
-
+# -*- coding: utf-8 -*-
 try:
 	import core.crawler as craw
 	from src.Colors import TextColor
@@ -9,6 +8,9 @@ try:
 	from Config.WebConfig import (define_headerdata)
 except Exception as err:
 	raise SystemExit, TextColor.RED + str("Something wring in importing the libraries: %s"%(err)) + TextColor.WHITE
+
+reload(lib.sys)
+lib.sys.setdefaultencoding('utf-8') # this line set the all encoding of project to utf-8
 
 def menu():
 	print TextColor.WARNING + str('1. use file') + TextColor.WHITE
