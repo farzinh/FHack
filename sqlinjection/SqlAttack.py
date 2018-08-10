@@ -52,12 +52,3 @@ class Attack(object):
 
         if injectedChar != "" and was_Vulnrable == True:
             UnionBaseAttack(self.url, injectedChar, firstResponse)
-
-
-#todo: this script must recognize the kindof database that target used
-#todo: target = http://tncgroup.pk/content.php?Id=2 => show error
-#todo: target = http://tesc.ir/index.php?ctrl=static_page&lang=1&id=4232 => forbidden
-#todo: target = http://webnevisan.ir/index.php?type=project-detail&id=123 => change its content
-
-
-

@@ -10,7 +10,7 @@ class TextColor:
 	BOLD		= '\033[1m'
 	UNDERLINE 	= '\033[4m'
 	WHITE		= '\033[0m'
-	RED		= '\033[31m'
+	RED			= '\033[31m'
 	PURPLE		= '\033[35m'
 	CYAN		= '\033[36m'
 
@@ -57,4 +57,3 @@ class TextColor:
 	CVIOLETBG2 = '\33[105m'
 	CBEIGEBG2  = '\33[106m'
 	CWHITEBG2  = '\33[107m'
-

