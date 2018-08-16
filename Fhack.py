@@ -4,7 +4,7 @@ try:
 	from src.Colors import TextColor
 	from core.menu import ShowItems
 	from src.Mask import MaskTerminal
-	from sqlinjection import test_website_main
+	from WebAttack.sqlinjection import test_website_main
 	from core import crawler as craw
 	from src import libs
 except Exception as err:

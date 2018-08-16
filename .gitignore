@@ -102,3 +102,12 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+<<<<<<< HEAD
+=======
+targets/
+targets
+.idea
+.idea/
+crawledlink/
+crawledlink
+>>>>>>> 003ddbb7f79b380a23e6335d93626ef37275f28f
