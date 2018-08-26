@@ -20,7 +20,7 @@ class Attack(object):
         global define_data
         print
 
-        firstResponse = lib.requests.get(url=self.url, headers=define_headerdata)
+        firstResponse = lib.requests.get(url=self.url, headers=define_headerdata, verify=False)
 
         injectedChar = ""
         was_Vulnrable = False
@@ -31,7 +31,7 @@ class Attack(object):
         '''
         for item in define_injections_chars:
             lib.sys.stdout.write(TextColor.CYAN + str('[%s]'%(self.url + str(item))) + TextColor.WHITE)
-            resposne = lib.requests.get(url=self.url + str(item), headers=define_headerdata)
+            resposne = lib.requests.get(url=self.url + str(item), headers=define_headerdata, verify=False)
             lib.sleep(.5)
             if resposne.content.find(define_error_list_php[0]) is not -1 \
                     or resposne.content.find(define_error_list_php[1]) is not -1 \

