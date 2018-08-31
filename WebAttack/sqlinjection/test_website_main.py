@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 try:
-	import core.crawler as craw
+	from WebAttack.crawler import crawler as craw
 	from src.Colors import TextColor
 	import src.libs as lib
 	import os

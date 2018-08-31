@@ -6,6 +6,7 @@ try:
     from src.libs import Thread
     import os
     from Config.WebConfig import define_headerdata
+    from Config.RecOS import IsOSDarwin
 
 except Exception as err:
     raise SystemExit, TextColor.RED + str('Something is wrong when we want to import libraries: %s'%(err)) + TextColor.WHITE
@@ -82,9 +83,7 @@ class Crawler(object):
 
             if self.depth != "!!":
                 if counter_depth == int(self.depth):
-                    print
-                    print TextColor.WARNING + str(" ------- Done ------- ") + TextColor.WHITE
-                    print
+                    print TextColor.WARNING + str("\n ------- Done ------- \n") + TextColor.WHITE
                     break
 
             counter_depth = counter_depth + 1
@@ -98,8 +97,10 @@ class Crawler(object):
                 #algorithm of crawling on website page
                 if response.status_code == 200:
 
-                    soup = lib.BS(response.content)#, "lxml")
-                    # soup = lib.BS(response.content, "lxml") todo = this line dose not work for mac os
+                    if IsOSDarwin():#parser os lxml not working on mac OS <Darwin>
+                        soup = lib.BS(response.content, "html.parser")
+                    else:
+                        soup = lib.BS(response.content, "lxml")
                     for line in soup.find_all('a', href=True):
                         if lib.urlparse.urlparse(line['href']):
                             sleep(0.2)

@@ -5,7 +5,7 @@ try:
 	from core.menu import ShowItems
 	from src.Mask import MaskTerminal
 	from WebAttack.sqlinjection import test_website_main
-	from core import crawler as craw
+	from WebAttack.crawler import crawler as craw
 	from src import libs
 except Exception as err:
 	raise SystemExit, TextColor.RED + str('\nSome thing wrong in libraries: %s\n'%(err)) + TextColor.WHITE
