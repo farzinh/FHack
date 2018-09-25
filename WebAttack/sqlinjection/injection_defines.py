@@ -18,13 +18,15 @@ define_error_list_php = [
 
 #This is order by command and it bypass
 define_order_by_command_php = [
-    " order by 1000",
-    " group by 1000"
+    " orDeR bY 1000",
+    " gRoUp bY 1000"
 ]
 
 #order by errors
 define_error_order_by_php = [
-    "column '1000' in 'order clause'"
+    "column '1000' in 'order clause'",
+    "You have an error in your SQL syntax",
+    "You have an error in File"
 ]
 
 #Order by in php End
