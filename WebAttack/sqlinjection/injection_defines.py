@@ -19,7 +19,8 @@ define_error_list_php = [
 #This is order by command and it bypass
 define_order_by_command_php = [
     " orDeR bY 1000",
-    " gRoUp bY 1000"
+    " oRdeR BY 1000 %23",
+    " gRoUp bY 1000",
 ]
 
 #order by errors

