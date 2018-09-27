@@ -3,3 +3,14 @@
 [-] 3.I must work on order by in sql injection and solve (\') problem in sql injection queries
 
 [+++] we have too many problem in exploiting of php sql injection
+
+
+
+
+
+
+---------------------------------------In sql injection
+first we must extract how many columns exists
+with order by command injection
+
+# end

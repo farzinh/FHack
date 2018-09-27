@@ -26,7 +26,9 @@ define_order_by_command_php = [
 define_error_order_by_php = [
     "column '1000' in 'order clause'",
     "You have an error in your SQL syntax",
-    "You have an error in File"
+    "You have an error in File",
+    "mysql_fetch_array()",
+    "Unknown column '1000' in 'group statement'"
 ]
 
 #Order by in php End

@@ -9,7 +9,7 @@ try:
     from injection_defines import (define_injections_chars, define_error_list_php)
     from test_UnionBase import test_UnionBaseAttack
     from Config.WebConfig import define_headerdata
-
+    from UnionBaseAttack import UnionBaseAttack
 
 except Exception as err:
     raise SystemExit, TextColor.RED + TextColor.BOLD + str("What happened :( something is wrong: %s"%(err)) \
@@ -56,4 +56,4 @@ class Attack(object):
                 print TextColor.GREEN + " => clear"
 
         if injectedChar != "" and was_Vulnrable == True:
-            test_UnionBaseAttack(self.url, injectedChar, firstResponse)
+            UnionBaseAttack(self.url, injectedChar, firstResponse)
