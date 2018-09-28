@@ -64,48 +64,49 @@
     <session id="190029395">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.5" value="2" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="5" />
-          <entry key="py" value="3255" />
+          <entry key="dummy" value="6" />
+          <entry key="py" value="4944" />
           <entry key="tasks" value="217" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="222" />
-          <entry key="Python" value="3255" />
+          <entry key="PLAIN_TEXT" value="223" />
+          <entry key="Python" value="4944" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="7" />
+          <entry key="py" value="8" />
           <entry key="tasks" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="7" />
+          <entry key="Python" value="8" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.42540854">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="225">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/WebAttack/sqlinjection/test_UnionBase.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1274">
-                  <caret line="120" column="28" lean-forward="true" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
+                <state relative-caret-position="691">
+                  <caret line="200" column="21" lean-forward="true" selection-start-line="191" selection-start-column="8" selection-end-line="200" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
@@ -135,8 +136,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/WebAttack/sqlinjection/injection_defines.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="504">
-                  <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+                <state relative-caret-position="435">
+                  <caret line="50" selection-start-line="50" selection-end-line="50" />
                 </state>
               </provider>
             </entry>
@@ -144,10 +145,14 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/WebAttack/sqlinjection/UnionBaseAttack.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="846">
-                  <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+                <state relative-caret-position="697">
+                  <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
                   <folding>
-                    <element signature="e#908#1157#0" />
+                    <marker date="1538161945904" expanded="true" signature="989:5004" ph="..." />
+                    <marker date="1538161945904" expanded="true" signature="1034:1244" ph="..." />
+                    <marker date="1538161945904" expanded="true" signature="1975:3291" ph="..." />
+                    <marker date="1538161945904" expanded="true" signature="3337:4694" ph="..." />
+                    <marker date="1538161945904" expanded="true" signature="4013:4669" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -188,6 +193,8 @@
       <find>avata</find>
       <find>!-- END PAGE CONTENT WRAPPER</find>
       <find>__InjectOrderNumber__</find>
+      <find>libs</find>
+      <find>lib</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -234,9 +241,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="ProjectFrameBounds" extendedState="7" fullScreen="true">
+    <option name="y" value="27" />
+    <option name="width" value="1920" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -302,7 +310,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="last_opened_file_path" value="/usr/lib/python2.7/dist-packages/pip/vcs/git.py" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Python" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -336,7 +344,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-26" width="1920" height="1106" extended-state="0" />
+    <frame x="0" y="-26" width="1920" height="1106" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.15181866" />
@@ -389,13 +397,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/FHackGui/settings.py" />
     <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/WebApp/tests.py" />
@@ -444,13 +452,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/libs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebAttack/crawler/crawler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1848">
@@ -486,26 +487,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebAttack/sqlinjection/test_UnionBase.py">
+    <entry file="file://$PROJECT_DIR$/src/libs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1274">
-          <caret line="120" column="28" lean-forward="true" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
+        <state relative-caret-position="240">
+          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebAttack/sqlinjection/injection_defines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        <state relative-caret-position="435">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebAttack/sqlinjection/test_UnionBase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="691">
+          <caret line="200" column="21" lean-forward="true" selection-start-line="191" selection-start-column="8" selection-end-line="200" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebAttack/sqlinjection/UnionBaseAttack.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="846">
-          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+        <state relative-caret-position="697">
+          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
           <folding>
-            <element signature="e#908#1157#0" />
+            <marker date="1538161945904" expanded="true" signature="989:5004" ph="..." />
+            <marker date="1538161945904" expanded="true" signature="1034:1244" ph="..." />
+            <marker date="1538161945904" expanded="true" signature="1975:3291" ph="..." />
+            <marker date="1538161945904" expanded="true" signature="3337:4694" ph="..." />
+            <marker date="1538161945904" expanded="true" signature="4013:4669" ph="..." />
           </folding>
         </state>
       </provider>

