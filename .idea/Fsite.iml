@@ -9,6 +9,8 @@
     <orderEntry type="library" name="R User Library" level="project" />
     <orderEntry type="library" name="R Skeletons" level="application" />
     <orderEntry type="module" module-name="FHackGui" />
+    <orderEntry type="module" module-name="bazzarshop" />
+    <orderEntry type="module" module-name="FHackGui" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />

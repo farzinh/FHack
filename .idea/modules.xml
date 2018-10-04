@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../FHackGui/.idea/FHackGui.iml" filepath="$PROJECT_DIR$/../FHackGui/.idea/FHackGui.iml" />
       <module fileurl="file://$PROJECT_DIR$/../FHackGui/FHackGui/.idea/FHackGui.iml" filepath="$PROJECT_DIR$/../FHackGui/FHackGui/.idea/FHackGui.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Fsite.iml" filepath="$PROJECT_DIR$/.idea/Fsite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../practice/jangoPro/bazzarshop/.idea/bazzarshop.iml" filepath="$PROJECT_DIR$/../../practice/jangoPro/bazzarshop/.idea/bazzarshop.iml" />
     </modules>
   </component>
 </project>

