@@ -17,13 +17,15 @@ class ShowItems():
 		sys.stdout.write(str('\t\t3. Social engineering \t'))
 		print '4. Network attack'
 		sys.stdout.write(str('\t\t5. Software analysis \t'))
-		print '6. Information gathering' + TextColor.WHITE
+		print '6. Information gathering' 
+		print(str('\t\t7. Manage database') + TextColor.WHITE)
 
 	def ItemOfWebAttack(self):
-		print TextColor.HEADER + TextColor.UNDERLINE + str("|--------------------Web Application Pentest --" + TextColor.WHITE)
+		print TextColor.HEADER + TextColor.UNDERLINE + str("|------Web Application Pentest------|" + TextColor.WHITE)
 		print TextColor.CYAN + str('|1. SQL Injections')
 		print str('|2. XSS Attack')
 		print str('|3. Admin page finder')
 		print str('|4. Admin password bruteforce')
 		print str('|5. Crawl website')
+		print str('|6. Directory finder')
 		print str('|0. Exit') + TextColor.WHITE
