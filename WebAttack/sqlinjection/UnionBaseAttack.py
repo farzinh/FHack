@@ -6,6 +6,7 @@ try:
     from src.Colors import TextColor
     from injection_defines import *
     import requests as reqs
+    reqs.packages.urllib3.disable_warnings()
     import sys
     import string as string
     import src.libs as lib

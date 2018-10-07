@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 try:
 	import requests
+	requests.packages.urllib3.disable_warnings()
 	import sys, urlparse, hashlib
 	from Queue import Queue, Empty as QueueEmpty
 	from time import sleep
