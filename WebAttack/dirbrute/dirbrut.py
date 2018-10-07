@@ -1,21 +1,36 @@
 # -*- coding: utf-8 -*-
 try:
-    import socket as sock
+    import requests as reqs
     import src.libs as lib
     from src.Colors import TextColor
     from threading import Thread
+    from Config.WebConfig import define_headerdata
 except Exception as err:
-	raise SystemExit, TextColor.RED + "Something is wrong: %s"%(err) + TextColor.WHITE
+    raise SystemExit, TextColor.RED + "Something is wrong: %s"%(err) + TextColor.WHITE
 
 class MainThread(Thread):
-    def __init__(self):
-        pass
+    def __init__(self, url_list_item, rhost):
+        Thread.__init__(self)
 
-    def run():
-        pass
+        self.url = rhost
+        self.guestList = url_list_item
+
+    def run(self):
+        for item in self.guestList:
+            print self.url + item
+            # response = reqs.get(url=self.url + item, headers=define_headerdata,
+            #                     verify=False, allow_redirects=False)
+
 
 def start_check_url(url_list_items, rhost):
-    pass
+
+    if rhost.endswith('/'):
+        rhost = rhost[0: len(rhost) - 1]
+
+    run_thread = MainThread(url_list_items, rhost)
+    run_thread.setDaemon(True)
+    run_thread.start()
+
 
 def Menu():
     print TextColor.CYAN + str('|----- Directory attack -----|')
@@ -24,23 +39,22 @@ def Menu():
     print '|3. Use bruteforce' + TextColor.WHITE
 
 def CheckRhost():
-    """ Function 
+    """ Function
         in this function first we check web site which is online or not
         then show menu to start
     """
-    rhost = raw_input(TextColor.CURL + 'Enter url: ' + TextColor.WHITE)
+    print
+    rhost = raw_input(TextColor.PURPLE + ' ==> Enter url (e.g: http://example.com): ' + TextColor.WHITE)
     print TextColor.WARNING + str('[*] Checking RHOST --> %s'%(rhost)) + TextColor.WHITE
     try:
-        soc_init = sock.socket(sock.AF_INET, sock.SOCK_STREAM)
-        status = soc_init.connect_ex((rhost, 80))
-        soc_init.shutdown(sock.SHUT_RDWR)
-        soc_init.close()
-        if status == 0:
+        response = reqs.get(url=rhost, headers=define_headerdata,
+                            verify=False, allow_redirects=False)
+        if response.status_code == 200:
             print TextColor.GREEN + str('[+] rhost has been set!! -- Done.') + TextColor.WHITE
             lib.sleep(.5)
             Menu()
             return rhost
-        else: 
+        else:
             print TextColor.RED + 'Something wrong with rhost can not reach the rhost' + TextColor.WHITE
             return None
     except Exception as err:
@@ -49,10 +63,13 @@ def CheckRhost():
 
 def WithWorldList(wordlist, rhost):
     path_list = set()
-    print TextColor.WARNING + str('[*] please wait to load line of %s'%(wordlist)) + TextColor.WHITE
+    print TextColor.WARNING + str('[*] please wait to load lines of %s'%(wordlist)) + TextColor.WHITE
     with open(wordlist, 'r') as file:
         for item in file.readlines():
-            path_list.add(item)
+            if item.startswith('/'):
+                path_list.add(item[1: len(item)])
+            else:
+                path_list.add(item)
     print TextColor.GREEN + str('[+] All items add to the list succcessfully!! Done.') + TextColor.WHITE
 
     print TextColor.CYELLOWBG2 + TextColor.RED + str('[+] Beginning scan') + TextColor.WHITE
@@ -61,10 +78,10 @@ def WithWorldList(wordlist, rhost):
 def Start():
     rhost = CheckRhost() #first we check that rhost is online or not
 
-    choice = raw_input(TextColor.PURPLE + 'Fhack ~/web-attack/dirbrut/# Enter your choice: ' + TextColor.WHITE)
+    choice = raw_input(TextColor.PURPLE + ' ==> Enter your choice: ' + TextColor.WHITE)
 
     if choice == "1":
-        filePath = raw_input(TextColor.HEADER + str('Enter wordlist path: ') + TextColor.WHITE)
+        filePath = raw_input(TextColor.HEADER + str('[*] Enter wordlist path: ') + TextColor.WHITE)
         WithWorldList(filePath, rhost)
     elif choice == "2":
         pass
