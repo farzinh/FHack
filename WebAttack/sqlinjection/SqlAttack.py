@@ -7,7 +7,6 @@ try:
     import src.libs as lib
     from src.Colors import TextColor
     from injection_defines import (define_injections_chars, define_error_list_php)
-    from test_UnionBase import test_UnionBaseAttack
     from Config.WebConfig import define_headerdata
     from UnionBaseAttack import UnionBaseAttack
 
