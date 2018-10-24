@@ -18,7 +18,3 @@ class FHackDB(object):
         except Exception:
             return None
 
-    # @classmethod
-    # def InsertToDb():
-    #     pass
-    

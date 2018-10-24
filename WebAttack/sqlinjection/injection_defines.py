@@ -18,9 +18,7 @@ define_error_list_php = [
 
 #This is order by command and it bypass
 define_order_by_command_php = [
-    " orDeR bY 1000",
     " oRdeR BY 1000 %23",
-    " gRoUp bY 1000",
     " gRoUp bY 1000 %23"
 ]
 
@@ -30,9 +28,13 @@ define_error_order_by_php = [
     "You have an error in your SQL syntax",
     "You have an error in File",
     "mysql_fetch_array()",
+    "ORDER BY data DESC",
+    "ORDER BY",
     "Unknown column '1000' in 'group statement'",
-    "order by 1000 # ORDER BY"
-    "order by 1000"
+    "oRdeR BY 1000 # ORDER BY",
+    "oRdeR BY 1000",
+    "order by 1000",
+    "order by 1000 # ORDER BY data DESC"
 ]
 
 #Order by in php End

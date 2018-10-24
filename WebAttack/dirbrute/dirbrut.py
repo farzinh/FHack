@@ -3,37 +3,32 @@ try:
     import requests as reqs
     import src.libs as lib
     from src.Colors import TextColor
-    from threading import Thread, Lock
     from Config.WebConfig import define_headerdata
+    from multiprocessing import Pool
 except Exception as err:
     raise SystemExit, TextColor.RED + "Something is wrong: %s" % (err) + TextColor.WHITE
 
 reqs.packages.urllib3.disable_warnings()
 
-lock_object = Lock()
-
-def run_thread(url_list_items, rhost):
-    global lock_object
-    with lock_object:
-        for item in url_list_items:
-            response = reqs.get(url=rhost + "/" + item.strip('\n'), headers=define_headerdata,
-                                verify=False).status_code
-            if response == 200:
-                print TextColor.GREEN + '[+] Found %s'%(rhost + "/" + item.strip('\n')) + TextColor.WHITE
-            else:
-                print TextColor.RED + '[-] Not found %s'%(rhost + "/" + item.strip('\n'))
+def run_thread(url_list):
+    response = reqs.get(url=url_list, headers=define_headerdata,
+                   verify=False).status_code
+    if response == 200:
+        print TextColor.GREEN + '[+] Found %s'%(url_list) + TextColor.WHITE
+    else:
+        print TextColor.RED + '[-] Not found %s'%(url_list) + TextColor.WHITE
 
 def start_check_url(url_list_items, rhost):
     if rhost.endswith('/'):
         rhost = rhost[0: len(rhost) - 1]
 
-    thread_main = Thread(target=run_thread, args=(url_list_items, rhost, ))
-    thread_main.setDaemon(False)
-    thread_main.start()
-    thread_main.join()
-    lib.sleep(1)
-    if thread_main.isAlive():
-        del thread_main
+    finalUrls = list()
+    for item in url_list_items:
+        finalUrls.append(rhost + "/" + item.strip('\n'))
+
+    #create multi thread and then check urls that exists or not
+    pool = Pool(processes=20)
+    pool.map(run_thread, finalUrls)
 
     print
     print TextColor.GREEN + "[+] Done !!!" + TextColor.WHITE
@@ -98,6 +93,8 @@ def Start():
     elif choice == "3":
         pass
 
-
 if __name__ == "__main__":
-    Start()
+    try:
+        Start()
+    except KeyboardInterrupt:
+        raise SystemExit, "Good luck"

