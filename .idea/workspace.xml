@@ -14,21 +14,22 @@
     <session id="-481858675">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="26" />
+          <entry key="project.closed" value="30" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.3" value="3" />
           <entry key="project.open.time.4" value="11" />
-          <entry key="project.open.time.5" value="10" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="27" />
+          <entry key="project.open.time.5" value="13" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.opened" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="803" />
+          <entry key="dummy" value="7" />
           <entry key="html" value="3468" />
           <entry key="js" value="663" />
-          <entry key="py" value="10531" />
+          <entry key="py" value="13388" />
           <entry key="tasks" value="232" />
         </counts>
       </usages-collector>
@@ -37,8 +38,8 @@
           <entry key="CSS" value="803" />
           <entry key="HTML" value="3468" />
           <entry key="JavaScript" value="663" />
-          <entry key="PLAIN_TEXT" value="232" />
-          <entry key="Python" value="10531" />
+          <entry key="PLAIN_TEXT" value="239" />
+          <entry key="Python" value="13388" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -46,9 +47,9 @@
           <entry key="LICENSE" value="1" />
           <entry key="css" value="4" />
           <entry key="h" value="1" />
-          <entry key="html" value="7" />
+          <entry key="html" value="8" />
           <entry key="js" value="1" />
-          <entry key="py" value="71" />
+          <entry key="py" value="75" />
           <entry key="tasks" value="2" />
         </counts>
       </usages-collector>
@@ -56,10 +57,10 @@
         <counts>
           <entry key="C++" value="1" />
           <entry key="CSS" value="4" />
-          <entry key="HTML" value="7" />
+          <entry key="HTML" value="8" />
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="71" />
+          <entry key="Python" value="75" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -105,12 +106,12 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebAttack/sqlinjection/UnionBaseAttack.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/managesqlitedb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="273" selection-start-line="273" selection-end-line="273" />
+            <state relative-caret-position="396">
+              <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -118,35 +119,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebAttack/dirbrute/dirbrut.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="81" selection-start-line="81" selection-end-line="81" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Fhack.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebAttack/sqlinjection/injection_defines.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="18" column="21" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/menu.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="526">
+              <caret line="83" column="47" lean-forward="true" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
+              <folding>
+                <marker date="1540573705431" expanded="true" signature="3058:3166" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -202,10 +179,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Fsite.py" />
         <option value="$PROJECT_DIR$/src/Mask.py" />
         <option value="$PROJECT_DIR$/sqlinjection/union_select_attack.py" />
-        <option value="$PROJECT_DIR$/../FHackGui/FHackGui/FHackGui/settings.py" />
         <option value="$PROJECT_DIR$/../FHackGui/FHackGui/WebApp/templates/loginpage.html" />
         <option value="$PROJECT_DIR$/../FHackGui/FHackGui/static/css/loginpage.css" />
         <option value="$PROJECT_DIR$/../FHackGui/FHackGui/WebApp/WebAppAttack/crawl.py" />
@@ -250,12 +225,15 @@
         <option value="$PROJECT_DIR$/core/managedb.py" />
         <option value="$PROJECT_DIR$/WebAttack/sqlinjection/injection_defines.py" />
         <option value="$PROJECT_DIR$/WebAttack/sqlinjection/UnionBaseAttack.py" />
-        <option value="$PROJECT_DIR$/WebAttack/dirbrute/dirbrut.py" />
         <option value="$PROJECT_DIR$/core/menu.py" />
+        <option value="$PROJECT_DIR$/../FHackGui/FHackGui/WebApp/models.py" />
+        <option value="$PROJECT_DIR$/../FHackGui/FHackGui/FHackGui/settings.py" />
+        <option value="$PROJECT_DIR$/WebAttack/dirbrute/dirbrut.py" />
+        <option value="$PROJECT_DIR$/core/managesqlitedb.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -265,6 +243,44 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FHack" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FHack" type="462c0819:PsiDirectoryNode" />
+              <item name="Config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FHack" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FHack" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="dbs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FHack" type="462c0819:PsiDirectoryNode" />
+              <item name="WebAttack" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FHack" type="462c0819:PsiDirectoryNode" />
+              <item name="WebAttack" type="462c0819:PsiDirectoryNode" />
+              <item name="dirbrute" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -276,50 +292,6 @@
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="FHack" type="cbb8eebc:String" user="FHack" />
               <item name="sqlinjection" type="cbb8eebc:String" user="sqlinjection" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FHack" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="WebAttack" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="WebAttack" type="462c0819:PsiDirectoryNode" />
-              <item name="crawler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="WebAttack" type="462c0819:PsiDirectoryNode" />
-              <item name="dirbrute" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="WebAttack" type="462c0819:PsiDirectoryNode" />
-              <item name="sqlinjection" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -398,7 +370,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/WebApp/templates/loginpage.html" />
     <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/static/css/loginpage.css" />
     <entry file="file://$PROJECT_DIR$/venv/include/python2.7/bufferobject.h" />
     <entry file="file://$PROJECT_DIR$/sqlinjection/injection_defines.py" />
@@ -414,7 +385,6 @@
     <entry file="file://$PROJECT_DIR$/sqlinjection/UnionBase.py" />
     <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/WebAppAttack/crawl.py" />
     <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/static/css/theme-default.css" />
-    <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/WebApp/templates/mainpage.html" />
     <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/WebApp/templates/toolspage.html" />
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor" />
@@ -478,20 +448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/FHackGui/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="102" column="13" selection-start-line="102" selection-start-column="13" selection-end-line="102" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/WebApp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/FHackGui/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -509,37 +465,23 @@
     <entry file="file://$PROJECT_DIR$/../shop/shop_tco/templates/index.html" />
     <entry file="file://$PROJECT_DIR$/../shop/shop_tco/templates/product.html" />
     <entry file="file://$PROJECT_DIR$/../shop/shop_tco/shop/views.py" />
-    <entry file="file://$PROJECT_DIR$/core/managedb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebAttack/sqlinjection/UnionBaseAttack.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
+        <state relative-caret-position="6006">
           <caret line="273" selection-start-line="273" selection-end-line="273" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebAttack/dirbrute/dirbrut.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Fhack.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
+        <state relative-caret-position="572">
           <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebAttack/sqlinjection/injection_defines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="396">
           <caret line="18" column="21" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="21" />
         </state>
       </provider>
@@ -548,6 +490,51 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/WebApp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/WebApp/templates/mainpage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/FHackGui/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="38" column="1" lean-forward="true" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/WebApp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebAttack/dirbrute/dirbrut.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="83" column="47" lean-forward="true" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
+          <folding>
+            <marker date="1540573705431" expanded="true" signature="3058:3166" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/managesqlitedb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
         </state>
       </provider>
     </entry>

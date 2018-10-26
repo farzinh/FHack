@@ -5,6 +5,7 @@ try:
     from src.Colors import TextColor
     from Config.WebConfig import define_headerdata
     from multiprocessing import Pool
+    from core.managesqlitedb import DirectoryFinerDB
 except Exception as err:
     raise SystemExit, TextColor.RED + "Something is wrong: %s" % (err) + TextColor.WHITE
 
@@ -79,6 +80,10 @@ def WithWorldList(wordlist, rhost):
     print TextColor.CYELLOWBG2 + TextColor.RED + str('[+] Beginning scan') + TextColor.WHITE
     start_check_url(path_list, rhost)
 
+def UseFhackDataBase():
+    if DirectoryFinerDB().__insert_data__(("media", )):
+        print "Done -------"
+    else: print 'No'
 
 def Start():
     rhost = CheckRhost()  # first we check that rhost is online or not
@@ -89,7 +94,7 @@ def Start():
         filePath = raw_input(TextColor.HEADER + str('[*] Enter wordlist path: ') + TextColor.WHITE)
         WithWorldList(filePath, rhost)
     elif choice == "2":
-        pass
+        UseFhackDataBase()
     elif choice == "3":
         pass
 
