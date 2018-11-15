@@ -241,8 +241,6 @@ class UnionBaseAttack(object):
         extract_user(tuple_of_injectionString_and_vulnColumns)
         exploit(tuple_of_injectionString_and_vulnColumns)
 
-
-
     def __order_by_cmd__(self):
         injected_method = ""
 
