@@ -9,14 +9,18 @@ except Exception as err:
 
 class DirectoryFinerDB():
     def __init__(self):
-        self.dbConnection = sqlite.connect("./dbs/dirbrute.db")
-        self.__create_table__()
+        dbPath = os.getcwd() + "/core/dbs/dirbrute.db"
+        if os.path.exists(dbPath):
+            self.dbConnection = sqlite.connect(dbPath)
+            self.__create_table__()
+        else:
+            print TextColor.RED + str('Something is wrong in database:: database is not exist please create database file') + TextColor.WHITE
 
     def __create_table__(self):
         try:
             cur = self.dbConnection.cursor()
             cur.execute("""create table if not exists tbl_dirs (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                             path varchar(100) not null);""")
+                             path varchar(100) not null unique);""")
             self.dbConnection.commit()
         except sqlite.Error as err:
             print TextColor.RED + str(err) + TextColor.WHITE

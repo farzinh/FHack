@@ -37,6 +37,8 @@ def Switch_Menu_Item(number):
 				craw.SetWebSiteUrl(url=url)
 			elif choice == '6':
 				dirbrut.Start()
+	elif number == '7':
+		print 'Working on manage dbs'
 	else:
 		print 'On construction'
 

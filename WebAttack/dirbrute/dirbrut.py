@@ -81,11 +81,12 @@ def WithWorldList(wordlist, rhost):
     start_check_url(path_list, rhost)
 
 def UseFhackDataBase():
-    if DirectoryFinerDB().__insert_data__(("media", )):
+    if DirectoryFinerDB().__insert_data__(("pics", )):
         print "Done -------"
     else: print 'No'
 
 def Start():
+
     rhost = CheckRhost()  # first we check that rhost is online or not
 
     choice = raw_input(TextColor.PURPLE + ' ==> Enter your choice: ' + TextColor.WHITE)
