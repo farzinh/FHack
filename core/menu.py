@@ -30,3 +30,12 @@ class ShowItems():
 		print str('|5. Crawl website')
 		print str('|6. Directory finder')
 		print str('|0. Exit') + TextColor.WHITE
+
+	def ItemOManageDatabase(self):
+		print TextColor.HEADER + TextColor.UNDERLINE + str('|------Manage Database------|') + TextColor.WHITE
+		print TextColor.CYAN + str('|1. Show all database')
+		print str('|2. Insert to table')
+		print str('|3. Update the record')
+		print str('|4. Delete the record')
+		print str('|5. Select the records') + TextColor.WHITE
+		print
