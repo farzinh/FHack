@@ -31,7 +31,7 @@ class ShowItems():
 		print str('|6. Directory finder')
 		print str('|0. Exit') + TextColor.WHITE
 
-	def ItemOManageDatabase(self):
+	def ItemOfManageDatabase(self):
 		print TextColor.HEADER + TextColor.UNDERLINE + str('|------Manage Database------|') + TextColor.WHITE
 		print TextColor.CYAN + str('|1. Show all database')
 		print str('|2. Insert to table')

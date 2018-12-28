@@ -9,6 +9,7 @@ try:
 	from WebAttack.dirbrute import dirbrut
 	from src import libs
 	from CoreManage import databasemanage
+	from Config.FhackInitializer import InitFhack
 except Exception as err:
 	raise SystemExit, TextColor.RED + str('\nSome thing wrong in libraries: %s\n'%(err)) + TextColor.WHITE
 
@@ -39,12 +40,14 @@ def Switch_Menu_Item(number):
 			elif choice == '6':
 				dirbrut.Start()
 	elif number == '7':
-		subMenu.ItemOManageDatabase()
+		subMenu.ItemOfManageDatabase()
 		databasemanage.StartManageDBs()
 	else:
 		print 'On construction'
 
 def main():
+
+	InitFhack()
 
 	global define_MAX_MenuItem
 

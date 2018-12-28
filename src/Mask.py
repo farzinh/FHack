@@ -28,7 +28,7 @@ Mask = TextColor.HEADER + TextColor.BOLD + str('''
 '''
 	\Created by topcoder.mc/
 	 \Join me in instagram/
-	  \    topcoder.mc   /
+	  \    topcodermc   /
 	   \ We all are one /
 '''
 ) + TextColor.WHITE
