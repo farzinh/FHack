@@ -8,3 +8,6 @@ except Exception as err:
 
 def InitFhack():
     os.system('cls' if os.name == 'nt' else 'clear')
+
+    if not os.path.exists('outputs'):
+        os.mkdir('./outputs')

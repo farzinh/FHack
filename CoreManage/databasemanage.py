@@ -16,7 +16,7 @@ def StartManageDBs():
 
         if choice == '1':  # show all database that fhack use
             ShowAllDBs()
-        elif choice == '2': #insert data to database
+        elif choice == '2':  # insert data to database
             all_tables = ShowAllDBs()
             db = raw_input(TextColor.CVIOLET + str("Which table do you want to insert data?: ") + TextColor.WHITE)
             try:
@@ -24,17 +24,13 @@ def StartManageDBs():
             except Exception as err:
                 print TextColor.RED + str('Wrong: %s' % (err)) + TextColor.WHITE
                 break
-        elif choice == '3':
-            pass
-        elif choice == '4':
-            pass
-        elif choice == '5': # raw query for sqlite
+        elif choice == '3':  # raw query for sqlite
             all_tables = ShowAllDBs()
             db = raw_input(TextColor.CVIOLET + str("Which table do you want to use raw query?: ") + TextColor.WHITE)
             try:
                 RawQuery(all_tables[int(db)])
             except Exception as err:
-                print TextColor.RED + str('Wrong: %s' % (err)) + TextColor.WHITE
+                print TextColor.RED + str('Wrong: %s' % err) + TextColor.WHITE
                 break
 
         elif choice == '0':
@@ -97,7 +93,7 @@ def InsertMethod(table):
             try:
                 DirectoryFinerDB().__insert_data__((str(item),))
             except Exception as err:
-                print TextColor.RED + str('Something is wrong: %s' % (err)) + TextColor.WHITE
+                print TextColor.RED + str('Something is wrong: %s' % err) + TextColor.WHITE
             print TextColor.GREEN + str("\n\nitem added on database successfully\n\n") + TextColor.WHITE
         elif selectedItem == '0':
             return
@@ -106,7 +102,6 @@ def InsertMethod(table):
 
 
 def RawQuery(db):
-
     if str(db) == 'dirbrute.db':
 
         list_of_allTables = DirectoryFinerDB().__raw_query__("SELECT name FROM sqlite_master WHERE type='table';")
@@ -119,7 +114,8 @@ def RawQuery(db):
         print TextColor.CYELLOW + str(make_table) + TextColor.WHITE + "\n"
 
         while True:
-            query = raw_input(TextColor.CVIOLET + str("FHack/DbManagement/#Enter raw query ('exit' to return): ") + TextColor.WHITE)
+            query = raw_input(
+                TextColor.CVIOLET + str("FHack/DbManagement/#Enter raw query ('exit' to return): ") + TextColor.WHITE)
 
             if query == "exit":
                 break
@@ -132,6 +128,3 @@ def RawQuery(db):
                 make_table.add_row([str(counter), item])
                 counter += 1
             print TextColor.CYELLOW + str(make_table) + TextColor.WHITE + "\n"
-
-
-

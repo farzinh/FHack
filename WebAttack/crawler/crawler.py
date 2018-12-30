@@ -164,17 +164,17 @@ class Crawler(object):
     def WriteUrlsInFile(self, url):
         all_url_wrote = set()
 
-        if not os.path.exists('crawledlink'):
-            os.mkdir('./crawledlink')
+        if not os.path.exists('./outputs/crawledlink'):
+            os.mkdir('./outputs/crawledlink')
 
-        if not os.path.exists('./crawledlink/' + self.host): #check that destination file is exist or  not
-            open('./crawledlink/' + self.host, 'a')#if not we create that file
+        if not os.path.exists('./outputs/crawledlink/' + self.host): #check that destination file is exist or  not
+            open('./outputs/crawledlink/' + self.host, 'a')#if not we create that file
 
-        with open('./crawledlink/' + self.host, 'r') as file:
+        with open('./outputs/crawledlink/' + self.host, 'r') as file:
             for item in file.readlines():
                 all_url_wrote.add(item)
 
         if url not in all_url_wrote:
-            with open('crawledlink/' + self.host, 'a') as file:
+            with open('./outputs/crawledlink/' + self.host, 'a') as file:
                 file.write(url + "\n")
         else: pass
