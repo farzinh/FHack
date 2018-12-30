@@ -31,6 +31,10 @@ def Switch_Menu_Item(number):
 				
 			if choice == '1':
 				sql_website_attack.start()
+			elif choice == '2':
+				from WebAttack.xssinjection.xssmain import MainXSS
+				MainXSS()
+
 			elif choice == '5':
 				url = raw_input(TextColor.PURPLE + TextColor.BOLD + str('Fhack ~/web-attack/Crawler/# Enter url of rhost: ') \
 											 + TextColor.WHITE)

@@ -57,3 +57,7 @@ class TextColor:
 	CVIOLETBG2 = '\33[105m'
 	CBEIGEBG2  = '\33[106m'
 	CWHITEBG2  = '\33[107m'
+
+	DARKGREEN  = '\033[32m'
+	WHITESMOKE = '\033[37m'
+
