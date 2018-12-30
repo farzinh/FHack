@@ -37,5 +37,5 @@ class ShowItems():
 		print str('|2. Insert to table')
 		print str('|3. Update the record')
 		print str('|4. Delete the record')
-		print str('|5. Select the records') + TextColor.WHITE
+		print str('|5. Raw query') + TextColor.WHITE
 		print

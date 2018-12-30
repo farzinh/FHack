@@ -16,20 +16,27 @@ def StartManageDBs():
 
         if choice == '1':  # show all database that fhack use
             ShowAllDBs()
-        elif choice == '2':
+        elif choice == '2': #insert data to database
             all_tables = ShowAllDBs()
-            table = raw_input(TextColor.CVIOLET + str("Which table do you want to insert data?: ") + TextColor.WHITE)
+            db = raw_input(TextColor.CVIOLET + str("Which table do you want to insert data?: ") + TextColor.WHITE)
             try:
-                InsertMethod(all_tables[int(table)])
+                InsertMethod(all_tables[int(db)])
             except Exception as err:
-                print TextColor.RED + str('Wrong: %s'%(err)) + TextColor.WHITE
+                print TextColor.RED + str('Wrong: %s' % (err)) + TextColor.WHITE
                 break
         elif choice == '3':
             pass
         elif choice == '4':
             pass
-        elif choice == '5':
-            pass
+        elif choice == '5': # raw query for sqlite
+            all_tables = ShowAllDBs()
+            db = raw_input(TextColor.CVIOLET + str("Which table do you want to use raw query?: ") + TextColor.WHITE)
+            try:
+                RawQuery(all_tables[int(db)])
+            except Exception as err:
+                print TextColor.RED + str('Wrong: %s' % (err)) + TextColor.WHITE
+                break
+
         elif choice == '0':
             print
             print
@@ -80,7 +87,7 @@ def InsertMethod(table):
                 for item in file.readlines():
                     try:
                         DirectoryFinerDB().__insert_data__((str(item).strip('\n'),))
-                    except Exception as err:
+                    except:
                         pass
 
             print TextColor.GREEN + str("\n\nitem added on database successfully\n\n") + TextColor.WHITE
@@ -90,12 +97,41 @@ def InsertMethod(table):
             try:
                 DirectoryFinerDB().__insert_data__((str(item),))
             except Exception as err:
-                print TextColor.RED + str('Something is wrong: %s'%(err)) + TextColor.WHITE
+                print TextColor.RED + str('Something is wrong: %s' % (err)) + TextColor.WHITE
             print TextColor.GREEN + str("\n\nitem added on database successfully\n\n") + TextColor.WHITE
+        elif selectedItem == '0':
+            return
         else:
             raise SystemExit, TextColor.RED + str("\n\nSomething is wrong please enter 1-2\n\n") + TextColor.WHITE
 
 
+def RawQuery(db):
+
+    if str(db) == 'dirbrute.db':
+
+        list_of_allTables = DirectoryFinerDB().__raw_query__("SELECT name FROM sqlite_master WHERE type='table';")
+
+        counter = 0
+        make_table = lib.mytable(['Count', 'Table Name'])
+        for item in list_of_allTables:
+            make_table.add_row([str(counter), item[0]])
+            counter += 1
+        print TextColor.CYELLOW + str(make_table) + TextColor.WHITE + "\n"
+
+        while True:
+            query = raw_input(TextColor.CVIOLET + str("FHack/DbManagement/#Enter raw query ('exit' to return): ") + TextColor.WHITE)
+
+            if query == "exit":
+                break
+
+            list_of_allOutPut = DirectoryFinerDB().__raw_query__(query)
+
+            counter = 0
+            make_table = lib.mytable(['Count', 'Value'])
+            for item in list_of_allOutPut:
+                make_table.add_row([str(counter), item])
+                counter += 1
+            print TextColor.CYELLOW + str(make_table) + TextColor.WHITE + "\n"
 
 
 

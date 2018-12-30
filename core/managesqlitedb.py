@@ -36,7 +36,7 @@ class DirectoryFinerDB():
             print TextColor.RED + str(err) + TextColor.WHITE
             return False
 
-    def __select_data__(self, query):
+    def __raw_query__(self, query):
         """ Selecting data from database
         :param query: you can send your query that you want
         :return: list of data
@@ -51,16 +51,15 @@ class DirectoryFinerDB():
         except sqlite.Error as err:
             print TextColor.RED + str(err) + TextColor.WHITE
 
-    def __delete_data__(self, ids):
-        """ You can delete some records that you wannt
+    def __delete_data__(self, path):
+        """ You can delete some records that you want
         :param ids: you must pass list of ids
         :return: boolean ==> if success return True then return False
         """
         try:
             cur = self.dbConnection.cursor()
-            for id in ids:
-                cmd = "delete from tbl_dirs where id=%s"%(id)
-                cur.execute(cmd)
+            cmd = "delete from tbl_dirs where path=%s"%(path)
+            cur.execute(cmd)
             self.dbConnection.commit()
             cur.close()
             return True

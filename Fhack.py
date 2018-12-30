@@ -42,6 +42,8 @@ def Switch_Menu_Item(number):
 	elif number == '7':
 		subMenu.ItemOfManageDatabase()
 		databasemanage.StartManageDBs()
+	elif number == '0':
+		raise SystemExit, '<-- Good Luck hacker -->'
 	else:
 		print 'On construction'
 
