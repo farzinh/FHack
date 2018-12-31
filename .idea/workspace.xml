@@ -14,15 +14,15 @@
     <session id="-481858675">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="41" />
+          <entry key="project.closed" value="42" />
           <entry key="project.open.time.0" value="5" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="3" />
           <entry key="project.open.time.4" value="12" />
           <entry key="project.open.time.5" value="17" />
-          <entry key="project.open.time.6" value="3" />
+          <entry key="project.open.time.6" value="4" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="42" />
+          <entry key="project.opened" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -32,7 +32,8 @@
           <entry key="dummy" value="7" />
           <entry key="html" value="3468" />
           <entry key="js" value="663" />
-          <entry key="py" value="19537" />
+          <entry key="payloads" value="11" />
+          <entry key="py" value="20746" />
           <entry key="tasks" value="256" />
         </counts>
       </usages-collector>
@@ -41,8 +42,8 @@
           <entry key="CSS" value="803" />
           <entry key="HTML" value="3468" />
           <entry key="JavaScript" value="663" />
-          <entry key="PLAIN_TEXT" value="506" />
-          <entry key="Python" value="19537" />
+          <entry key="PLAIN_TEXT" value="517" />
+          <entry key="Python" value="20746" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -57,7 +58,8 @@
           <entry key="ir" value="7" />
           <entry key="js" value="1" />
           <entry key="libs_used" value="1" />
-          <entry key="py" value="102" />
+          <entry key="payloads" value="2" />
+          <entry key="py" value="103" />
           <entry key="tasks" value="5" />
         </counts>
       </usages-collector>
@@ -67,8 +69,8 @@
           <entry key="CSS" value="4" />
           <entry key="HTML" value="8" />
           <entry key="JavaScript" value="1" />
-          <entry key="PLAIN_TEXT" value="20" />
-          <entry key="Python" value="102" />
+          <entry key="PLAIN_TEXT" value="22" />
+          <entry key="Python" value="103" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -115,34 +117,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebAttack/xssinjection/xssmain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="38" column="40" lean-forward="true" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+            <state relative-caret-position="389">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
-                <marker date="1546205555968" expanded="true" signature="268:798" ph="..." />
+                <marker date="1546289873401" expanded="true" signature="315:845" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebAttack/xssinjection/payloads/loader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="13">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+              <folding>
+                <marker date="1546291190136" expanded="true" signature="148:159" ph="..." />
+                <marker date="1546291190136" expanded="true" signature="179:691" ph="..." />
+                <marker date="1546291190136" expanded="true" signature="783:788" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Mask.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebAttack/crawler/crawler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="106" column="35" lean-forward="true" selection-start-line="106" selection-start-column="35" selection-end-line="106" selection-end-column="35" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/WebAttack/xssinjection/payloads/payloads">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -197,8 +200,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/crawler.py" />
-        <option value="$PROJECT_DIR$/sqlinjection/test_website_main.py" />
         <option value="$PROJECT_DIR$/sqlinjection/UnionBase.py" />
         <option value="$PROJECT_DIR$/sqlinjection/SqlAttack.py" />
         <option value="$PROJECT_DIR$/../FHackGui/FHackGui/WebAppAttack/crawl.py" />
@@ -246,12 +247,14 @@
         <option value="$PROJECT_DIR$/src/libs.py" />
         <option value="$PROJECT_DIR$/WebAttack/sqlinjection/sql_website_attack.py" />
         <option value="$PROJECT_DIR$/src/Colors.py" />
-        <option value="$PROJECT_DIR$/WebAttack/xssinjection/xssmain.py" />
         <option value="$PROJECT_DIR$/src/Mask.py" />
+        <option value="$PROJECT_DIR$/WebAttack/xssinjection/payloads/payloads" />
+        <option value="$PROJECT_DIR$/WebAttack/xssinjection/xssmain.py" />
+        <option value="$PROJECT_DIR$/WebAttack/xssinjection/payloads/loader.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -261,6 +264,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="FHack" type="cbb8eebc:String" user="FHack" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="FHack" type="cbb8eebc:String" user="FHack" />
+              <item name="sqlinjection" type="cbb8eebc:String" user="sqlinjection" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -307,21 +326,12 @@
               <item name="WebAttack" type="462c0819:PsiDirectoryNode" />
               <item name="xssinjection" type="462c0819:PsiDirectoryNode" />
             </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
             <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="FHack" type="cbb8eebc:String" user="FHack" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="FHack" type="cbb8eebc:String" user="FHack" />
-              <item name="sqlinjection" type="cbb8eebc:String" user="sqlinjection" />
+              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FHack" type="462c0819:PsiDirectoryNode" />
+              <item name="WebAttack" type="462c0819:PsiDirectoryNode" />
+              <item name="xssinjection" type="462c0819:PsiDirectoryNode" />
+              <item name="payloads" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -331,6 +341,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/topcoder/Home/Projects/python/githubsProjects/FHack/WebAttack/xssinjection/payloads/payloads" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -422,7 +433,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15151516" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15151516" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -434,7 +445,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Python Console" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32891566" />
       <window_info anchor="bottom" auto_hide="true" id="Event Log" order="10" weight="0.32771084" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -452,8 +463,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/static/js/toolspage.js" />
-    <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/static/css/toolspage.css" />
     <entry file="file://$PROJECT_DIR$/core/crawler.py" />
     <entry file="file://$PROJECT_DIR$/Config/platform.py" />
     <entry file="file://$PROJECT_DIR$/Config/RecOS.py">
@@ -627,32 +636,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1474">
           <caret line="67" column="40" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="40" />
-          <folding>
-            <marker date="1546177536547" expanded="true" signature="3838:3839" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebAttack/crawler/crawler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="106" column="35" lean-forward="true" selection-start-line="106" selection-start-column="35" selection-end-line="106" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mask.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        <state relative-caret-position="2332">
+          <caret line="106" column="35" selection-start-line="106" selection-start-column="35" selection-end-line="106" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebAttack/xssinjection/xssmain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="38" column="40" lean-forward="true" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+        <state relative-caret-position="389">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
-            <marker date="1546205555968" expanded="true" signature="268:798" ph="..." />
+            <marker date="1546289873401" expanded="true" signature="315:845" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Mask.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebAttack/xssinjection/payloads/payloads">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebAttack/xssinjection/payloads/loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <marker date="1546291190136" expanded="true" signature="148:159" ph="..." />
+            <marker date="1546291190136" expanded="true" signature="179:691" ph="..." />
+            <marker date="1546291190136" expanded="true" signature="783:788" ph="..." />
           </folding>
         </state>
       </provider>

