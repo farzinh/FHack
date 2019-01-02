@@ -3,7 +3,6 @@ try:
 except Exception as err:
     raise SystemExit, '%s' % err
 
-#todo = I must work here
 
 def XssTypeOfDepth():
     pass
