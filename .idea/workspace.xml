@@ -14,15 +14,15 @@
     <session id="-481858675">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="45" />
+          <entry key="project.closed" value="46" />
           <entry key="project.open.time.0" value="6" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="3" />
           <entry key="project.open.time.4" value="12" />
-          <entry key="project.open.time.5" value="18" />
+          <entry key="project.open.time.5" value="19" />
           <entry key="project.open.time.6" value="5" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="46" />
+          <entry key="project.opened" value="47" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -33,7 +33,7 @@
           <entry key="html" value="3468" />
           <entry key="js" value="663" />
           <entry key="payloads" value="11" />
-          <entry key="py" value="20888" />
+          <entry key="py" value="21872" />
           <entry key="tasks" value="256" />
         </counts>
       </usages-collector>
@@ -43,7 +43,7 @@
           <entry key="HTML" value="3468" />
           <entry key="JavaScript" value="663" />
           <entry key="PLAIN_TEXT" value="517" />
-          <entry key="Python" value="20888" />
+          <entry key="Python" value="21872" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -59,7 +59,7 @@
           <entry key="js" value="1" />
           <entry key="libs_used" value="1" />
           <entry key="payloads" value="2" />
-          <entry key="py" value="104" />
+          <entry key="py" value="108" />
           <entry key="tasks" value="5" />
         </counts>
       </usages-collector>
@@ -70,7 +70,7 @@
           <entry key="HTML" value="8" />
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="22" />
-          <entry key="Python" value="104" />
+          <entry key="Python" value="108" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -117,13 +117,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebAttack/xssinjection/xssmain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="290">
+              <caret line="38" column="4" lean-forward="true" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
               <folding>
-                <marker date="1546289873401" expanded="true" signature="315:845" ph="..." />
+                <marker date="1546529314059" expanded="true" signature="315:845" ph="..." />
               </folding>
             </state>
           </provider>
@@ -132,33 +132,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebAttack/xssinjection/payloads/loader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+            <state relative-caret-position="475">
+              <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
               <folding>
-                <marker date="1546464100552" expanded="true" signature="123:134" ph="..." />
-                <marker date="1546464100552" expanded="true" signature="154:666" ph="..." />
-                <marker date="1546464100552" expanded="true" signature="758:763" ph="..." />
+                <marker date="1546526239147" expanded="true" signature="171:183" ph="..." />
+                <marker date="1546526239147" expanded="true" signature="203:722" ph="..." />
+                <marker date="1546526239147" expanded="true" signature="745:1127" ph="..." />
+                <marker date="1546526239147" expanded="true" signature="1184:1189" ph="..." />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/managesqlitedb.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="151" column="54" selection-start-line="151" selection-start-column="54" selection-end-line="151" selection-end-column="54" />
-              <folding>
-                <marker date="1546466275538" expanded="true" signature="239:241" ph="..." />
-                <marker date="1546466275538" expanded="true" signature="2988:2989" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebAttack/xssinjection/payloads/payloads">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -173,7 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>define_data</find>
       <find>define_headers</find>
       <find>requests.get</find>
       <find>home</find>
@@ -203,6 +185,7 @@
       <find>Thread</find>
       <find>define_order_by_command_php</find>
       <find>self.host</find>
+      <find>dat</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -261,9 +244,9 @@
         <option value="$PROJECT_DIR$/src/Colors.py" />
         <option value="$PROJECT_DIR$/src/Mask.py" />
         <option value="$PROJECT_DIR$/WebAttack/xssinjection/payloads/payloads" />
-        <option value="$PROJECT_DIR$/WebAttack/xssinjection/xssmain.py" />
         <option value="$PROJECT_DIR$/WebAttack/xssinjection/payloads/loader.py" />
         <option value="$PROJECT_DIR$/core/managesqlitedb.py" />
+        <option value="$PROJECT_DIR$/WebAttack/xssinjection/xssmain.py" />
       </list>
     </option>
   </component>
@@ -649,13 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebAttack/dirbrute/dirbrut.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1474">
-          <caret line="67" column="40" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebAttack/crawler/crawler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2332">
@@ -670,38 +646,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebAttack/xssinjection/xssmain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <marker date="1546289873401" expanded="true" signature="315:845" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebAttack/xssinjection/payloads/payloads">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebAttack/xssinjection/payloads/loader.py">
+    <entry file="file://$PROJECT_DIR$/WebAttack/dirbrute/dirbrut.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-          <folding>
-            <marker date="1546464100552" expanded="true" signature="123:134" ph="..." />
-            <marker date="1546464100552" expanded="true" signature="154:666" ph="..." />
-            <marker date="1546464100552" expanded="true" signature="758:763" ph="..." />
-          </folding>
+        <state relative-caret-position="103">
+          <caret line="88" column="17" lean-forward="true" selection-start-line="88" selection-start-column="17" selection-end-line="88" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/managesqlitedb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="151" column="54" selection-start-line="151" selection-start-column="54" selection-end-line="151" selection-end-column="54" />
+        <state relative-caret-position="407">
+          <caret line="136" column="64" selection-start-line="136" selection-start-column="19" selection-end-line="136" selection-end-column="64" />
           <folding>
-            <marker date="1546466275538" expanded="true" signature="239:241" ph="..." />
-            <marker date="1546466275538" expanded="true" signature="2988:2989" ph="..." />
+            <marker date="1546528209028" expanded="true" signature="239:241" ph="..." />
+            <marker date="1546528209028" expanded="true" signature="2988:2989" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebAttack/xssinjection/payloads/loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+          <folding>
+            <marker date="1546526239147" expanded="true" signature="171:183" ph="..." />
+            <marker date="1546526239147" expanded="true" signature="203:722" ph="..." />
+            <marker date="1546526239147" expanded="true" signature="745:1127" ph="..." />
+            <marker date="1546526239147" expanded="true" signature="1184:1189" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebAttack/xssinjection/xssmain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="38" column="4" lean-forward="true" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+          <folding>
+            <marker date="1546529314059" expanded="true" signature="315:845" ph="..." />
           </folding>
         </state>
       </provider>

@@ -96,7 +96,7 @@ class WebAttackDb():
         try:
             cur = self.dbConnection.cursor()
             cur.execute("""create table if not exists tbl_xss_payloads (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                             payload nvarchar(max) not null unique);""")
+                             payload nvarchar(700) not null unique);""")
             self.dbConnection.commit()
         except sqlite.Error as err:
             print TextColor.RED + str(err) + TextColor.WHITE
@@ -104,7 +104,7 @@ class WebAttackDb():
     def __insert_data__(self, value):
         try:
             conn = self.dbConnection.cursor()
-            conn.execute("INSERT INTO tbl_xss_payloads (payload) VALUES (?);", value)
+            conn.execute("INSERT or ignore INTO tbl_xss_payloads (payload) VALUES (?);", value)
             self.dbConnection.commit()
             conn.close()
             return True
@@ -134,7 +134,7 @@ class WebAttackDb():
         """
         try:
             cur = self.dbConnection.cursor()
-            cmd = "delete from tbl_xss_payloads where path=%s"%(path)
+            cmd = "delete from tbl_xss_payloads where payload=%s"%(path)
             cur.execute(cmd)
             self.dbConnection.commit()
             cur.close()

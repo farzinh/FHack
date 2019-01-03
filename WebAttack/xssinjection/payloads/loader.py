@@ -1,11 +1,13 @@
 try:
     from src.Colors import TextColor
+    from core.managesqlitedb import WebAttackDb
 except Exception as err:
     raise SystemExit, '%s' % err
 
 
 def XssTypeOfDepth():
     pass
+
 
 def MakeSelection():
     print TextColor.WHITESMOKE + "\t\t => [1]. Use Fhack database for payloads"
@@ -16,7 +18,7 @@ def MakeSelection():
     choice = raw_input(TextColor.CVIOLET + "Fhack/WebAttack/XSS/# Make your choice (1-3): " + TextColor.WHITE)
 
     if choice == "1":
-        UseFhackDataBase()
+        return UseFhackDataBase()
     elif choice == "2":
         UsePayloadFiles()
     elif choice == "3":
@@ -24,8 +26,17 @@ def MakeSelection():
 
 
 def UseFhackDataBase():
-    pass
+    allItems = WebAttackDb().__raw_query__('select * from tbl_xss_payloads')
 
+    listUrls = list()
+    for item in allItems:
+        listUrls.append(item[1])
+
+    print TextColor.GREEN + str('[+] All items add to the list succcessfully!! Done.') + TextColor.WHITE
+
+    print TextColor.CYELLOWBG2 + TextColor.RED + str('[+] Beginning scan') + TextColor.WHITE
+
+    return listUrls
 
 def UsePayloadFiles():
     pass
