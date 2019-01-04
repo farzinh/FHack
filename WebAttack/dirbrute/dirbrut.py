@@ -126,6 +126,7 @@ def Start():
         UseFhackDataBase(rhost)
     elif choice == "3":
         # todo = Work on directory bruteforce
+        print 'not work yet !! email: topcodermc@gmail.com'
         pass
 
 

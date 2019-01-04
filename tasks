@@ -1,3 +1,6 @@
+[-Important]: Change codes of sql injection attack 4/january/2019
+
+
 [-] 1.I must clean code the sqlinjection attack it is very dirty [the UnionBase.py file] (17/Agust/2018)
 [-] 2.I have problem when retrive datas from columns when I access the tables and they columns (27/Agust/2018)
 [-] 3.I must work on order by in sql injection and solve (\') problem in sql injection queries
@@ -6,10 +9,6 @@
 
 ==--==--==--==--==--==--==--==--==--==--==--==--==
 [-] Work on directory bruteforce 30/December/2018
-
-
----------------------------------------In sql injection
-first we must extract how many columns exists
-with order by command injection
-
+[done] Working on xss attack to search the whole of web site
+[-] Working on xss attack to get payloads from payload file and take single payload
 # end
