@@ -1,6 +1,7 @@
 try:
     from src.Colors import TextColor
     from core.managesqlitedb import WebAttackDb
+    from Utilities.BaseClass import ShowProgress
 except Exception as err:
     raise SystemExit, '%s' % err
 
@@ -29,14 +30,21 @@ def UseFhackDataBase():
     allItems = WebAttackDb().__raw_query__('select * from tbl_xss_payloads')
 
     listUrls = list()
-    for item in allItems:
-        listUrls.append(item[1])
 
+    counter = 0
+    for item in allItems:
+        ShowProgress(TextColor.CYELLOW + 'Loading the payloads', counter)
+        listUrls.append(item[1])
+        counter += 1
+
+    print
+    print TextColor.WARNING + str("All payload length that we load: %d" % len(allItems)) + TextColor.WHITE
     print TextColor.GREEN + str('[+] All items add to the list succcessfully!! Done.') + TextColor.WHITE
 
     print TextColor.CYELLOWBG2 + TextColor.RED + str('[+] Beginning scan') + TextColor.WHITE
 
     return listUrls
+
 
 def UsePayloadFiles():
     pass
