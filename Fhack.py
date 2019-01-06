@@ -9,6 +9,7 @@ try:
 	from WebAttack.dirbrute import dirbrut
 	from src import libs
 	from CoreManage import databasemanage
+	from InfoGathering.ManageInfoGathering import mainInfoGathering
 	from Config.FhackInitializer import InitFhack
 except Exception as err:
 	raise SystemExit, TextColor.RED + str('\nSome thing wrong in libraries: %s\n'%(err)) + TextColor.WHITE
@@ -28,24 +29,33 @@ def Switch_Menu_Item(number):
 			if choice == '0':
 				print
 				break
-				
+			#--------------------------------------------------
 			if choice == '1':
 				sql_website_attack.start()
+			# --------------------------------------------------
 			elif choice == '2':
 				from WebAttack.xssinjection.xssmain import MainXSS
 				MainXSS()
-
+			# --------------------------------------------------
 			elif choice == '5':
 				url = raw_input(TextColor.PURPLE + TextColor.BOLD + str('Fhack ~/web-attack/Crawler/# Enter url of rhost: ') \
 											 + TextColor.WHITE)
 				if url.endswith('/'):
 					url = url[0:len(url) - 1]
 				craw.SetWebSiteUrl(url=url)
+			# --------------------------------------------------
 			elif choice == '6':
 				dirbrut.Start()
+	# --------------------------------------------------
+	elif number == '6':
+		subMenu.ItemOfInformationGathering()
+		mainInfoGathering()
+
+	# --------------------------------------------------
 	elif number == '7':
 		subMenu.ItemOfManageDatabase()
 		databasemanage.StartManageDBs()
+	# --------------------------------------------------
 	elif number == '0':
 		raise SystemExit, '<-- Good Luck hacker -->'
 	else:
