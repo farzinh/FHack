@@ -11,6 +11,7 @@ try:
     from CoreManage import databasemanage
     from InfoGathering.ManageInfoGathering import mainInfoGathering
     from Config.FhackInitializer import InitFhack
+    from CreateMalware.mainCreateMalware import mainCreateMalware
 except Exception as err:
     raise SystemExit, TextColor.RED + str('\nSome thing wrong in libraries: %s\n' % err) + TextColor.WHITE
 
@@ -51,11 +52,11 @@ def Switch_Menu_Item(number):
     # --------------------------------------------------
     elif number == '2':
         subMenu.ItemOfCreateMalware()
+        mainCreateMalware()
     # --------------------------------------------------
     elif number == '6':
         subMenu.ItemOfInformationGathering()
         mainInfoGathering()
-
     # --------------------------------------------------
     elif number == '7':
         subMenu.ItemOfManageDatabase()
