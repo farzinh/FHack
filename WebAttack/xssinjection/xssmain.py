@@ -32,6 +32,9 @@ def MainXSS():
 
     output = MakeSelection()
 
+    if output is None:
+        return
+
     for rhost in crawl():
         StartAttack(output, rhost)
 

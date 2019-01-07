@@ -4,6 +4,7 @@ try:
     from src.Colors import TextColor
     import json
     import os
+    from Config.RecOS import IsOSDarwin
 except Exception as err:
     raise SystemError, '\033[0m' + 'Something is wrong with libraries: %s' % err + '\033[0m'
 
@@ -47,9 +48,57 @@ def LOW():  # with some data
     except Exception:
         raise SystemExit, '\033[31m' + 'Something is wrong: check your input or email topcodermc@gmail.com' + '\033[0m'
 
+    print '================================================'
+
 
 def HIGH():
-    print 'Loading .... not complete yet'
+    DEFINE_HEADERS = {
+        'user-agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0 Iceweasel/22.0',
+        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    }
+
+    try:
+
+        print
+        url = raw_input('\033[94m' + '==> Enter site url or ip (e.g.:example.com): ' + '\033[0m')
+
+        if not os.path.exists(
+                './outputs/Info-Gathering/' + 'HIGH-' + url):  # check that destination file is exist or  not
+            open('./outputs/Info-Gathering/' + 'HIGH-' + url, 'a')  # if not we create that file
+
+        response = lib.requests.get(url='https://viewdns.info/reverseip/',
+                                    params={'host': url, 't': '1'},
+                                    headers=DEFINE_HEADERS, verify=False)
+
+        start = response.content.find('Last Resolved Date')
+        end = response.content.find('</td></tr></table>')
+        result = ""
+        for item in xrange(start, end):
+            result += response.content[item]
+
+        if IsOSDarwin():  # parser os lxml not working on mac OS <Darwin>
+            soup = lib.BS(result, "html.parser")
+        else:
+            soup = lib.BS(result, "lxml")
+
+        list_of_cells = []
+        for cell in soup.find_all('td'):
+            text = cell.text.strip()
+            list_of_cells.append(text)
+
+        counter = 0
+        while counter < len(list_of_cells):
+            if counter % 2 == 0:
+                print '\033[33m'+ list_of_cells[counter] + '\033[0m'
+                with open('./outputs/Info-Gathering/' + 'HIGH-' + url, 'a') as file:
+                    file.write(str(list_of_cells[0]) + '\n')
+            counter += 1
+            # else: # get Last Resolved Date
+            #     print list_of_cells[counter]
+    except Exception as error:
+        raise SystemExit, '\033[31m' + 'Something is wrong: %s ==> check your input or email topcodermc@gmail.com' % error + '\033[0m'
+
+    print '================================================'
 
 
 def ReverseIpLookUp():

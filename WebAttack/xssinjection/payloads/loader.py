@@ -24,6 +24,8 @@ def MakeSelection():
         UsePayloadFiles()
     elif choice == "3":
         UseSinglePayload()
+    elif choice == '4':
+        return None
 
 
 def UseFhackDataBase():
