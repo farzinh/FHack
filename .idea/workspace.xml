@@ -14,15 +14,15 @@
     <session id="-481858675">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="51" />
+          <entry key="project.closed" value="52" />
           <entry key="project.open.time.0" value="8" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="3" />
           <entry key="project.open.time.4" value="12" />
           <entry key="project.open.time.5" value="22" />
           <entry key="project.open.time.6" value="5" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="52" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="53" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -135,16 +135,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CreateMalware/android/codeinjection/apkcodeinjection.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
               <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-              <folding>
-                <marker date="1546898547609" expanded="true" signature="216:307" ph="..." />
-                <marker date="1546898547609" expanded="true" signature="372:373" ph="..." />
-                <marker date="1546898547609" expanded="true" signature="372:428" ph="..." />
-              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="518">
+                <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -250,8 +257,8 @@
         <option value="$PROJECT_DIR$/libs_used" />
         <option value="$PROJECT_DIR$/CreateMalware/mainCreateMalware.py" />
         <option value="$PROJECT_DIR$/Fhack.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/CreateMalware/android/codeinjection/apkcodeinjection.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -601,11 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
           <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-          <folding>
-            <marker date="1546774692681" expanded="true" signature="46:51" ph="..." />
-            <marker date="1546774692681" expanded="true" signature="790:791" ph="..." />
-            <marker date="1546774692681" expanded="true" signature="790:795" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -620,9 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
           <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <marker date="1546886670692" expanded="true" signature="394:923" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -633,29 +632,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/outputs/Info-Gathering/HIGH-downloadme.ir">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outputs/Info-Gathering/LOW-aranuma.com">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outputs/Info-Gathering/LOW-downloadme.ir">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-889" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outputs/Info-Gathering/LOW-esecurity.ir">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/outputs/Info-Gathering/HIGH-downloadme.ir" />
+    <entry file="file://$PROJECT_DIR$/outputs/Info-Gathering/LOW-aranuma.com" />
+    <entry file="file://$PROJECT_DIR$/outputs/Info-Gathering/LOW-downloadme.ir" />
+    <entry file="file://$PROJECT_DIR$/outputs/Info-Gathering/LOW-esecurity.ir" />
     <entry file="file://$PROJECT_DIR$/InfoGathering/ReverseIpLookUp/reverseip.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="79">
           <caret line="91" column="67" selection-start-line="91" selection-start-column="67" selection-end-line="91" selection-end-column="67" />
-          <folding>
-            <marker date="1546892558080" expanded="true" signature="296:2084" ph="..." />
-            <marker date="1546892558080" expanded="true" signature="2095:4098" ph="..." />
-            <marker date="1546892558080" expanded="true" signature="4221:4562" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -670,12 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding>
-            <marker date="1546893461843" expanded="true" signature="311:312" ph="..." />
-            <marker date="1546893461843" expanded="true" signature="311:316" ph="..." />
-            <marker date="1546893461843" expanded="true" signature="504:505" ph="..." />
-            <marker date="1546893461843" expanded="true" signature="504:509" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -700,13 +678,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="573">
-            <caret line="30" column="61" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/core/menu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="607">
+          <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -721,25 +696,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/menu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
-          <folding>
-            <marker date="1546894145457" expanded="true" signature="1601:1610" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CreateMalware/android/codeinjection/apkcodeinjection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-          <folding>
-            <marker date="1546898547609" expanded="true" signature="216:307" ph="..." />
-            <marker date="1546898547609" expanded="true" signature="372:373" ph="..." />
-            <marker date="1546898547609" expanded="true" signature="372:428" ph="..." />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="518">
+            <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

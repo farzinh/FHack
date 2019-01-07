@@ -27,7 +27,7 @@ We coming soon.
 |MACOS|1.0.0.1|yes|yes|working|
 
 # INSTALLATION
-For the installation of Katana framework it's necesary to install all [dependencies](https://github.com/PowerScript/KatanaFramework/wiki/Requisites) for a good performance.
+For the installation of FHack framework it's necesary to install all [dependencies](https://github.com/PowerScript/KatanaFramework/wiki/Requisites) for a good performance.
 <pre><i><n>git clone https://github.com/topcoder-mc/FHack.git
 cd FHack
 sudo -s
