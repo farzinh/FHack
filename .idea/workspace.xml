@@ -32,8 +32,10 @@
           <entry key="dummy" value="17" />
           <entry key="html" value="3468" />
           <entry key="js" value="663" />
+          <entry key="libs_used" value="8" />
+          <entry key="md" value="30" />
           <entry key="payloads" value="11" />
-          <entry key="py" value="27790" />
+          <entry key="py" value="28386" />
           <entry key="tasks" value="481" />
         </counts>
       </usages-collector>
@@ -42,8 +44,9 @@
           <entry key="CSS" value="803" />
           <entry key="HTML" value="3468" />
           <entry key="JavaScript" value="663" />
-          <entry key="PLAIN_TEXT" value="752" />
-          <entry key="Python" value="27790" />
+          <entry key="Markdown" value="30" />
+          <entry key="PLAIN_TEXT" value="760" />
+          <entry key="Python" value="28386" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -57,9 +60,10 @@
           <entry key="html" value="8" />
           <entry key="ir" value="11" />
           <entry key="js" value="1" />
-          <entry key="libs_used" value="1" />
+          <entry key="libs_used" value="3" />
+          <entry key="md" value="1" />
           <entry key="payloads" value="2" />
-          <entry key="py" value="135" />
+          <entry key="py" value="140" />
           <entry key="tasks" value="7" />
         </counts>
       </usages-collector>
@@ -69,8 +73,9 @@
           <entry key="CSS" value="4" />
           <entry key="HTML" value="8" />
           <entry key="JavaScript" value="1" />
-          <entry key="PLAIN_TEXT" value="30" />
-          <entry key="Python" value="135" />
+          <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="32" />
+          <entry key="Python" value="140" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -117,17 +122,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/InfoGathering/ManageInfoGathering.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CreateMalware/mainCreateMalware.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+            <state relative-caret-position="22">
+              <caret line="1" column="66" selection-start-line="1" selection-start-column="66" selection-end-line="1" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CreateMalware/android/codeinjection/apkcodeinjection.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
-                <marker date="1546893461843" expanded="true" signature="311:312" ph="..." />
-                <marker date="1546893461843" expanded="true" signature="311:316" ph="..." />
-                <marker date="1546893461843" expanded="true" signature="504:505" ph="..." />
-                <marker date="1546893461843" expanded="true" signature="504:509" ph="..." />
+                <marker date="1546895402538" expanded="true" signature="206:297" ph="..." />
+                <marker date="1546895402538" expanded="true" signature="314:315" ph="..." />
+                <marker date="1546895402538" expanded="true" signature="314:370" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libs_used">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="18" selection-start-column="18" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="154">
+                <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -184,10 +218,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../FHackGui/FHackGui/static/js/toolspage.js" />
-        <option value="$PROJECT_DIR$/../FHackGui/FHackGui/static/css/toolspage.css" />
-        <option value="$PROJECT_DIR$/../FHackGui/FHackGui/WebApp/templates/toolspage.html" />
-        <option value="$PROJECT_DIR$/Config/platform.py" />
         <option value="$PROJECT_DIR$/Config/RecOS.py" />
         <option value="$PROJECT_DIR$/WebAttack/sqlinjection/UnionBase.py" />
         <option value="$PROJECT_DIR$/WebAttack/sqlinjection/test_UnionBase.py" />
@@ -226,8 +256,6 @@
         <option value="$PROJECT_DIR$/WebAttack/dirbrute/dirbrut.py" />
         <option value="$PROJECT_DIR$/WebAttack/xssinjection/crawl.py" />
         <option value="$PROJECT_DIR$/tasks" />
-        <option value="$PROJECT_DIR$/Fhack.py" />
-        <option value="$PROJECT_DIR$/core/menu.py" />
         <option value="$PROJECT_DIR$/InfoGathering/ReverseIpLookUp/Mask.py" />
         <option value="$PROJECT_DIR$/WebAttack/xssinjection/payloads/loader.py" />
         <option value="$PROJECT_DIR$/WebAttack/xssinjection/xssmain.py" />
@@ -235,6 +263,12 @@
         <option value="$PROJECT_DIR$/InfoGathering/ReverseIpLookUp/reverseip.py" />
         <option value="$PROJECT_DIR$/InfoGathering/ManageInfoGathering.py" />
         <option value="$PROJECT_DIR$/WebAttack/crawler/crawler.py" />
+        <option value="$PROJECT_DIR$/core/menu.py" />
+        <option value="$PROJECT_DIR$/Fhack.py" />
+        <option value="$PROJECT_DIR$/CreateMalware/mainCreateMalware.py" />
+        <option value="$PROJECT_DIR$/CreateMalware/android/codeinjection/apkcodeinjection.py" />
+        <option value="$PROJECT_DIR$/libs_used" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -258,29 +292,25 @@
             <path>
               <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
               <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="InfoGathering" type="462c0819:PsiDirectoryNode" />
+              <item name="about" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
               <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="InfoGathering" type="462c0819:PsiDirectoryNode" />
-              <item name="ReverseIpLookUp" type="462c0819:PsiDirectoryNode" />
+              <item name="CreateMalware" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
               <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="Utilities" type="462c0819:PsiDirectoryNode" />
+              <item name="CreateMalware" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
               <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="WebAttack" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="WebAttack" type="462c0819:PsiDirectoryNode" />
-              <item name="crawler" type="462c0819:PsiDirectoryNode" />
+              <item name="CreateMalware" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="codeinjection" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -398,7 +428,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15151516" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16349542" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -428,15 +458,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/pass" />
-    <entry file="file://$PROJECT_DIR$/../FHackGui/FHackGui/FHackGui/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../shop/shop_tco/shop/tests.py" />
     <entry file="file://$PROJECT_DIR$/../shop/shop_tco/shop_tco/urls.py" />
     <entry file="file://$PROJECT_DIR$/../shop/shop_tco/templates/signup.html" />
     <entry file="file://$PROJECT_DIR$/../shop/shop_tco/shop/forms.py" />
@@ -473,9 +494,6 @@
           <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs_used">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor" />
@@ -590,20 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Fhack.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/menu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="25" column="53" lean-forward="true" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/outputs/DirFinder/www.google.com" />
     <entry file="file://$PROJECT_DIR$/WebAttack/dirbrute/dirbrut.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -691,6 +695,59 @@
             <marker date="1546893461843" expanded="true" signature="504:505" ph="..." />
             <marker date="1546893461843" expanded="true" signature="504:509" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fhack.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-999">
+          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/menu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
+          <folding>
+            <marker date="1546894145457" expanded="true" signature="1601:1610" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CreateMalware/mainCreateMalware.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="66" selection-start-line="1" selection-start-column="66" selection-end-line="1" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CreateMalware/android/codeinjection/apkcodeinjection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <marker date="1546895402538" expanded="true" signature="206:297" ph="..." />
+            <marker date="1546895402538" expanded="true" signature="314:315" ph="..." />
+            <marker date="1546895402538" expanded="true" signature="314:370" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs_used">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="154">
+            <caret line="7" column="69" selection-start-line="7" selection-start-column="69" selection-end-line="7" selection-end-column="69" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

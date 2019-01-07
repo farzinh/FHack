@@ -12,17 +12,19 @@ class ShowItems:
     def __init__(self):
         pass
 
-    def ShowMenu(self):
+    @staticmethod
+    def ShowMenu():
         sys.stdout.write(TextColor.GREEN + str('\t\t1. Website Attack \t'))
         print '2. Create Malware'
         sys.stdout.write(str('\t\t3. Social engineering \t'))
-        print '4. Network attack'
+        print '4. Network'
         sys.stdout.write(str('\t\t5. Software analysis \t'))
         print '6. Information gathering'
         sys.stdout.write(str('\t\t7. Manage database'))
         print (str("\t0. Exit") + TextColor.WHITE)
 
-    def ItemOfWebAttack(self):
+    @staticmethod
+    def ItemOfWebAttack():
         print TextColor.HEADER + TextColor.UNDERLINE + str("|------Web Application Pentest------|" + TextColor.WHITE)
         print TextColor.CYAN + str('|1. SQL Injections')
         print str('|2. XSS Attack')
@@ -30,18 +32,25 @@ class ShowItems:
         print str('|4. Login password bruteforce')
         print str('|5. Crawl website')
         print str('|6. Directory finder')
-        print str('|7. Reverse Ip LookUp')
         print str('|0. Exit') + TextColor.WHITE
 
-    def ItemOfManageDatabase(self):
+    @staticmethod
+    def ItemOfManageDatabase():
         print TextColor.HEADER + TextColor.UNDERLINE + str('|------Manage Database------|') + TextColor.WHITE
         print TextColor.CYAN + str('|1. Show all database')
         print str('|2. Insert to table')
         print str('|3. Raw query') + TextColor.WHITE
         print
 
-    def ItemOfInformationGathering(self):
+    @staticmethod
+    def ItemOfInformationGathering():
         print TextColor.HEADER + TextColor.UNDERLINE + str('|------Information Gathering------|') + TextColor.WHITE
         print TextColor.CYAN + str('|1. Reverse IP lookup')
         print TextColor.CYAN + str('|2. Whois')
+        print str('|0. Exit') + TextColor.WHITE
+
+    @staticmethod
+    def ItemOfCreateMalware():
+        print TextColor.HEADER + TextColor.UNDERLINE + str('|------Create Malware------|') + TextColor.WHITE
+        print TextColor.CYAN + str('|1. apk injection')
         print str('|0. Exit') + TextColor.WHITE
