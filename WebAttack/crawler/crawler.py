@@ -43,8 +43,8 @@ def SetWebSiteUrl(url):  # set url of rhost for crawling
             else:  # else user must check that what happened that we can send request to web page
                 print TextColor.RED + str('[-] Fail to set rhost :(') + TextColor.WHITE
 
-        except Exception as err:
-            print TextColor.RED + str('[-] Some error with socket-> %s \n' % err) + TextColor.WHITE
+        except Exception as error:
+            print TextColor.RED + str('[-] Some error with socket-> %s \n' % error) + TextColor.WHITE
 
 
 # --------------------------------------------------
