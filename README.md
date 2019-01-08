@@ -14,7 +14,7 @@ We coming soon.
 |topcoder|creator and programmer|topcodermc@gmail.com
 
 
-![License](https://img.shields.io/badge/license-GPLv3-blue.svg) ![CORE](https://img.shields.io/badge/core-1.0.0.1-green.svg) ![Build](https://img.shields.io/badge/BUILD-0001-red.svg) ![Modules](https://img.shields.io/badge/modules-37-green.svg) ![Python](https://img.shields.io/badge/Python-2.7-green.svg) 
+![License](https://img.shields.io/badge/license-GPLv3-blue.svg) ![CORE](https://img.shields.io/badge/core-1.0.0.2-green.svg) ![Build](https://img.shields.io/badge/BUILD-2-red.svg) ![Modules](https://img.shields.io/badge/modules-37-green.svg) ![Python](https://img.shields.io/badge/Python-2.7-green.svg) 
 ![alt text](./about/FhackImage.png)
 
 
@@ -23,8 +23,8 @@ We coming soon.
 # SUPPORTED DISTRIBUTIONS
 |Distribution | Version Check | supported | dependencies already installed |status |
 ----------|-------|------|------|-------|
-|Debian(8)|1.0.0.1 | yes| yes | working   |
-|MACOS|1.0.0.1|yes|yes|working|
+|Debian(8)|1.0 | yes| yes | working   |
+|MACOS|1.0|yes|yes|working|
 
 # INSTALLATION
 For the installation of FHack framework it's necesary to install all [dependencies](https://github.com/PowerScript/KatanaFramework/wiki/Requisites) for a good performance.

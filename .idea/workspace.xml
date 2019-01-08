@@ -14,15 +14,15 @@
     <session id="-481858675">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="53" />
+          <entry key="project.closed" value="54" />
           <entry key="project.open.time.0" value="8" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="3" />
           <entry key="project.open.time.4" value="12" />
-          <entry key="project.open.time.5" value="22" />
+          <entry key="project.open.time.5" value="23" />
           <entry key="project.open.time.6" value="6" />
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="54" />
+          <entry key="project.opened" value="55" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -33,9 +33,9 @@
           <entry key="html" value="3468" />
           <entry key="js" value="663" />
           <entry key="libs_used" value="8" />
-          <entry key="md" value="393" />
+          <entry key="md" value="405" />
           <entry key="payloads" value="11" />
-          <entry key="py" value="28631" />
+          <entry key="py" value="28638" />
           <entry key="tasks" value="481" />
         </counts>
       </usages-collector>
@@ -44,9 +44,9 @@
           <entry key="CSS" value="803" />
           <entry key="HTML" value="3468" />
           <entry key="JavaScript" value="663" />
-          <entry key="Markdown" value="393" />
+          <entry key="Markdown" value="405" />
           <entry key="PLAIN_TEXT" value="760" />
-          <entry key="Python" value="28631" />
+          <entry key="Python" value="28638" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -63,7 +63,7 @@
           <entry key="libs_used" value="3" />
           <entry key="md" value="3" />
           <entry key="payloads" value="2" />
-          <entry key="py" value="143" />
+          <entry key="py" value="145" />
           <entry key="tasks" value="7" />
         </counts>
       </usages-collector>
@@ -75,7 +75,7 @@
           <entry key="JavaScript" value="1" />
           <entry key="Markdown" value="3" />
           <entry key="PLAIN_TEXT" value="32" />
-          <entry key="Python" value="143" />
+          <entry key="Python" value="145" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -122,34 +122,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CreateMalware/mainCreateMalware.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-              <folding>
-                <marker date="1546896471013" expanded="true" signature="214:216" ph="..." />
-                <marker date="1546896471013" expanded="true" signature="214:220" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CreateMalware/android/codeinjection/apkcodeinjection.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="254">
-                <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+              <first_editor relative-caret-position="374">
+                <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
               </first_editor>
               <second_editor />
             </state>
@@ -157,10 +135,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Mask.py">
+        <entry file="file://$PROJECT_DIR$/InfoGathering/ReverseIpLookUp/reverseip.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+            <state relative-caret-position="162">
+              <caret line="93" column="56" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -258,7 +236,6 @@
         <option value="$PROJECT_DIR$/WebAttack/xssinjection/payloads/loader.py" />
         <option value="$PROJECT_DIR$/WebAttack/xssinjection/xssmain.py" />
         <option value="$PROJECT_DIR$/Utilities/Async.py" />
-        <option value="$PROJECT_DIR$/InfoGathering/ReverseIpLookUp/reverseip.py" />
         <option value="$PROJECT_DIR$/InfoGathering/ManageInfoGathering.py" />
         <option value="$PROJECT_DIR$/WebAttack/crawler/crawler.py" />
         <option value="$PROJECT_DIR$/core/menu.py" />
@@ -267,6 +244,7 @@
         <option value="$PROJECT_DIR$/Fhack.py" />
         <option value="$PROJECT_DIR$/CreateMalware/android/codeinjection/apkcodeinjection.py" />
         <option value="$PROJECT_DIR$/src/Mask.py" />
+        <option value="$PROJECT_DIR$/InfoGathering/ReverseIpLookUp/reverseip.py" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -296,30 +274,13 @@
             <path>
               <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
               <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="CoreManage" type="462c0819:PsiDirectoryNode" />
+              <item name="InfoGathering" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
               <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="CreateMalware" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="CreateMalware" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="CreateMalware" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="codeinjection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="InfoGathering" type="462c0819:PsiDirectoryNode" />
+              <item name="ReverseIpLookUp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -643,24 +604,10 @@
     <entry file="file://$PROJECT_DIR$/outputs/Info-Gathering/LOW-aranuma.com" />
     <entry file="file://$PROJECT_DIR$/outputs/Info-Gathering/LOW-downloadme.ir" />
     <entry file="file://$PROJECT_DIR$/outputs/Info-Gathering/LOW-esecurity.ir" />
-    <entry file="file://$PROJECT_DIR$/InfoGathering/ReverseIpLookUp/reverseip.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="91" column="67" selection-start-line="91" selection-start-column="67" selection-end-line="91" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebAttack/crawler/crawler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="557">
           <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InfoGathering/ManageInfoGathering.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -712,16 +659,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Mask.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
+        <state relative-caret-position="528">
           <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InfoGathering/ManageInfoGathering.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InfoGathering/ReverseIpLookUp/reverseip.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="93" column="56" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="254">
-            <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <first_editor relative-caret-position="374">
+            <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
           </first_editor>
           <second_editor />
         </state>
