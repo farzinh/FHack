@@ -23,16 +23,7 @@ Mask = TextColor.HEADER + TextColor.BOLD + str('''
                                       OP"          :
 
 					  *FHACK*
-''') + TextColor.RED + \
-	str(
-'''
-	\Created by topcodermc /
-	 \Join me in instagram/
-	  \    topcodermc    /
-	   \ We all are one /
-'''
-) + TextColor.WHITE
-
+''') + TextColor.WHITE
 class MaskTerminal:
 	def __init__(self):
 		self.Text = Mask

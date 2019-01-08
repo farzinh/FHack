@@ -14,15 +14,15 @@
     <session id="-481858675">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="52" />
+          <entry key="project.closed" value="53" />
           <entry key="project.open.time.0" value="8" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="3" />
           <entry key="project.open.time.4" value="12" />
           <entry key="project.open.time.5" value="22" />
-          <entry key="project.open.time.6" value="5" />
+          <entry key="project.open.time.6" value="6" />
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="53" />
+          <entry key="project.opened" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -33,9 +33,9 @@
           <entry key="html" value="3468" />
           <entry key="js" value="663" />
           <entry key="libs_used" value="8" />
-          <entry key="md" value="380" />
+          <entry key="md" value="393" />
           <entry key="payloads" value="11" />
-          <entry key="py" value="28619" />
+          <entry key="py" value="28631" />
           <entry key="tasks" value="481" />
         </counts>
       </usages-collector>
@@ -44,9 +44,9 @@
           <entry key="CSS" value="803" />
           <entry key="HTML" value="3468" />
           <entry key="JavaScript" value="663" />
-          <entry key="Markdown" value="380" />
+          <entry key="Markdown" value="393" />
           <entry key="PLAIN_TEXT" value="760" />
-          <entry key="Python" value="28619" />
+          <entry key="Python" value="28631" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -148,10 +148,19 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="518">
-                <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+              <first_editor relative-caret-position="254">
+                <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Mask.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -239,7 +248,6 @@
         <option value="$PROJECT_DIR$/src/libs.py" />
         <option value="$PROJECT_DIR$/WebAttack/sqlinjection/sql_website_attack.py" />
         <option value="$PROJECT_DIR$/src/Colors.py" />
-        <option value="$PROJECT_DIR$/src/Mask.py" />
         <option value="$PROJECT_DIR$/WebAttack/xssinjection/payloads/payloads" />
         <option value="$PROJECT_DIR$/core/managesqlitedb.py" />
         <option value="$PROJECT_DIR$/Utilities/BaseClass.py" />
@@ -258,6 +266,7 @@
         <option value="$PROJECT_DIR$/CreateMalware/mainCreateMalware.py" />
         <option value="$PROJECT_DIR$/Fhack.py" />
         <option value="$PROJECT_DIR$/CreateMalware/android/codeinjection/apkcodeinjection.py" />
+        <option value="$PROJECT_DIR$/src/Mask.py" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -287,7 +296,7 @@
             <path>
               <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
               <item name="FHack" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="CoreManage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
@@ -306,6 +315,11 @@
               <item name="CreateMalware" type="462c0819:PsiDirectoryNode" />
               <item name="android" type="462c0819:PsiDirectoryNode" />
               <item name="codeinjection" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FHack" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FHack" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -540,13 +554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mask.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebAttack/sqlinjection/injection_defines.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-625">
@@ -703,11 +710,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Mask.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="518">
-            <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+          <first_editor relative-caret-position="254">
+            <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
           </first_editor>
           <second_editor />
         </state>
