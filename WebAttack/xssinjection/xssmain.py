@@ -53,6 +53,9 @@ def StartAttack(output, rhost):
 
             response = lib.requests.get(url=rhost, headers=define_headerdata, verify=False)
 
+            if response.status_code is not 200:
+                continue
+
             if IsOSDarwin():  # parser os lxml not working on mac OS <Darwin>
                 soup = lib.BS(response.content, "html.parser")
             else:
@@ -67,7 +70,7 @@ def StartAttack(output, rhost):
                     parameter = str(lib.urlparse.urlparse(line['name'])[2])
 
                     response = session.get(url=rhost, params={parameter: str(item)}, verify=False)
-
+                    
                     if response.content.find(str(item)) is not -1:
                         print
                         counter += 1

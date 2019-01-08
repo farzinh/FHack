@@ -14,7 +14,7 @@ We coming soon.
 |topcoder|creator and programmer|topcodermc@gmail.com
 
 
-![License](https://img.shields.io/badge/license-GPLv3-blue.svg) ![CORE](https://img.shields.io/badge/core-1.0.0.2-green.svg) ![Build](https://img.shields.io/badge/BUILD-2-red.svg) ![Modules](https://img.shields.io/badge/modules-37-green.svg) ![Python](https://img.shields.io/badge/Python-2.7-green.svg) 
+![License](https://img.shields.io/badge/license-GPLv3-blue.svg) ![CORE](https://img.shields.io/badge/core-1.0.0.3-green.svg) ![Build](https://img.shields.io/badge/BUILD-3-red.svg) ![Modules](https://img.shields.io/badge/modules-37-green.svg) ![Python](https://img.shields.io/badge/Python-2.7-green.svg) 
 ![alt text](./about/FhackImage.png)
 
 
